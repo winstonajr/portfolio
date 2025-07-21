@@ -26,7 +26,7 @@ import {
 // Substitua estes dados pelos seus próprios.
 
 const personalInfo = {
-  name: "Winston Jr",
+  name: "Winston A. Jr",
   title: "Desenvolvedor Web",
   tagline: "Construindo soluções digitais que resolvem problemas reais.",
   about: "Sou um desenvolvedor apaixonado por tecnologia e design, com experiência na criação de aplicações web modernas e responsivas. Meu foco é transformar ideias em produtos digitais intuitivos e eficientes, utilizando as melhores práticas do mercado. Fora do código, sou um entusiasta de games de estratégia, ficção científica e um explorador de distribuições Linux no meu tempo livre.",
