@@ -40,11 +40,11 @@ const projects = [
   {
     name: "Site da Igreja IADEVIB",
     description: "Website institucional da Igreja Assembleia de Deus Vila Brasil (IADEVIB), com design moderno, agenda de eventos, localização de suas congregações, notifições push via onesignal e painel administrativo para gerenciamento de conteúdo.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "OneSignal"],
+    technologies: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "Supabase", "OneSignal", "Git & Github"],
     liveUrl: "https://www.iadevib.com.br",
     githubUrl: "#",
     imageUrl: "/project-iadevib.png",
-  },
+  }/*,
   {
     name: "App de Gerenciamento de Tarefas",
     description: "Um Kanban board interativo com funcionalidade de arrastar e soltar, autenticação de usuários e persistência de dados em tempo real com Firebase.",
@@ -60,7 +60,7 @@ const projects = [
     liveUrl: "#",
     githubUrl: "#",
     imageUrl: "/project-default.png",
-  },
+  },*/
 ];
 
 const skills = {
@@ -86,25 +86,11 @@ const skills = {
 
 const experiences = [
     {
-        type: 'work',
-        title: "Desenvolvedor Frontend Sênior",
-        company: "Tech Solutions Inc.",
-        period: "2022 - Presente",
-        description: "Lidero o desenvolvimento da interface de nossa principal plataforma SaaS, focando em performance, acessibilidade e experiência do usuário. Colaborei na migração do legado para Next.js, resultando em uma melhoria de 50% no LCP."
-    },
-    {
-        type: 'education',
+        type: 'education',/*work or freelance*/
         title: "Análise e Desenvolvimento de Sistemas",
         company: "Faculdade Facint (Vincit)",
         period: "2025 - 2027",
         description: "Formação sólida em lógica de programação, engenharia de software, banco de dados e desenvolvimento web e mobile."
-    },
-    {
-        type: 'freelance',
-        title: "Freelancer",
-        company: "Projetos Pessoais",
-        period: "2020 - 2022",
-        description: "Desenvolvi websites e pequenos sistemas para clientes locais, ganhando experiência prática em todo o ciclo de vida de um projeto, desde o briefing até o deploy."
     }
 ];
 
