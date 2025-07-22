@@ -131,6 +131,13 @@ const experiences = [
       company: "Universidade Federal do Maranhão ― UFMA",
       period: "2020 - 2025",
       description: "Iniciei o curso buscando uma formação ampla em ciência e tecnologia, com forte foco em matemática e ciências exatas. No entanto, descobri minha verdadeira paixão na programação e decidi seguir esse caminho, aprofundando meus estudos de forma mais prática e aplicada na área de desenvolvimento web."
+    },
+    {
+      type: 'work',
+      title: "Instrutor Voluntário – Introdução à Programação com Python",
+      company: "Rede de Aplicação de Ciência e Tecnologia ― ReACT",
+      period: "Set 2022 - Dez 2022 / Mar 2023 - Jun 2023",
+      description: "Atuei como instrutor voluntário em cursos de introdução à programação com Python para estudantes do ensino médio. Planejei e ministrei aulas sobre lógica de programação, variáveis, estruturas de controle, funções e manipulação de dados. Desenvolvi exercícios práticos, estimulei o pensamento lógico e acompanhei os alunos individualmente. A experiência fortaleceu minhas habilidades de comunicação, didática e liderança."
     }
 ];
 
