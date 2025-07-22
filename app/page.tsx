@@ -505,7 +505,7 @@ export default function PortfolioApp() {
             onClick={() => setShowAllExperience(!showAllExperience)}
             className="bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-6 rounded-md transition-colors duration-300"
           >
-            {showAllCertifications ? "Ver Menos" : "Ver Mais"}
+            {showAllExperience ? "Ver Menos" : "Ver Mais"}
           </button>
         </div>
     </SectionWrapper>
