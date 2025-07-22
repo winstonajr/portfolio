@@ -15,15 +15,34 @@ import {
     X, 
     Code,
     Database, 
-    AppWindow, 
-    PenTool,
+    AppWindow,
     Briefcase,
     GraduationCap,
     HeartHandshake
 } from 'lucide-react';
+import {
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiHtml5,
+  SiCss3,
+  SiReact,
+  SiVuedotjs,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiTailwindcss,
+  SiBootstrap,
+  SiPostgresql,
+  SiMongodb,
+  SiFirebase,
+  SiSupabase,
+  SiMysql,
+  SiGit,
+  SiGithub,
+  SiExpress,
+} from 'react-icons/si'
 
 // --- DADOS MOCKADOS ---
-// Substitua estes dados pelos seus próprios.
 
 const personalInfo = {
   name: "Winston A. Jr",
@@ -65,32 +84,53 @@ const projects = [
 
 const skills = {
   languages: [
-    { name: "JavaScript", icon: <Code size={24} /> },
-    { name: "TypeScript", icon: <Code size={24} /> },
-    { name: "Python", icon: <Code size={24} /> },
-    { name: "HTML5/CSS3", icon: <Code size={24} /> },
+    { name: "JavaScript", icon: <SiJavascript/> },
+    { name: "TypeScript", icon: <SiTypescript/> },
+    { name: "Python", icon: <SiPython/> },
+    { name: "HTML5", icon: <SiHtml5/> },
+    { name: "CSS3", icon: <SiCss3/> },
   ],
   frameworks: [
-    { name: "React", icon: <AppWindow size={24} /> },
-    { name: "Next.js", icon: <AppWindow size={24} /> },
-    { name: "Node.js", icon: <AppWindow size={24} /> },
-    { name: "Tailwind CSS", icon: <PenTool size={24} /> },
+    { name: "React", icon: <SiReact/> },
+    { name: "Vue.js", icon: <SiVuedotjs/> },
+    { name: "Next.js", icon: <SiNextdotjs /> },
+    { name: "Node.js", icon: <SiNodedotjs/> },
+    { name: "Express", icon: <SiExpress /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss/> },
+    { name: "Bootstrap", icon: <SiBootstrap/> },
   ],
   databases: [
-    { name: "PostgreSQL", icon: <Database size={24} /> },
-    { name: "MongoDB", icon: <Database size={24} /> },
-    { name: "Firebase", icon: <Database size={24} /> },
-    { name: "Supabase", icon: <Database size={24} /> },
-  ],
-};
+    { name: "PostgreSQL", icon: <SiPostgresql/> },
+    { name: "MongoDB", icon: <SiMongodb/> },
+    { name: "MySQL", icon: <SiMysql/> },
+    { name: "Firebase", icon: <SiFirebase/> },
+    { name: "Supabase", icon: <SiSupabase/> },
+    { name: "Git", icon: <SiGit/> },
+    { name: "GitHub", icon: <SiGithub /> },
+  ]
+}
 
 const experiences = [
     {
-        type: 'education',/*work or freelance*/
-        title: "Análise e Desenvolvimento de Sistemas",
-        company: "Faculdade Facint (Vincit)",
-        period: "2025 - 2027",
-        description: "Formação sólida em lógica de programação, engenharia de software, banco de dados e desenvolvimento web e mobile."
+      type: 'education',/*work or freelance*/
+      title: "Análise e Desenvolvimento de Sistemas",
+      company: "Faculdade Facint (Vincit)",
+      period: "2025 - 2027",
+      description: "Formação técnica e prática voltada para o desenvolvimento de software e aplicações web. Tenho aprofundado conhecimentos em lógica de programação, banco de dados, front-end, back-end e arquitetura de sistemas, alinhando os estudos ao que aplico em projetos reais."
+    },
+    {
+      type: 'education',
+      title: "Curso Web Moderno Completo com JavaScript + Projetos",
+      company: "Udemy",
+      period: "Fev 2025 - Mai 2025",
+      description: "Formação intensiva em desenvolvimento full stack, cobrindo desde fundamentos de HTML, CSS e JavaScript até tecnologias modernas como React.js, Vue.js, Node.js, Next.js e Firebase. O curso abordou também práticas de UX/UI, versionamento com Git, consumo de APIs, bancos de dados (MongoDB e MySQL), testes, metodologias ágeis e ferramentas como Webpack, Gulp e Tailwind CSS."
+    },
+    {
+      type: 'education',
+      title: "Bacharelado Interdisciplinar em Ciência e Tecnologia",
+      company: "Universidade Federal do Maranhão ― UFMA",
+      period: "2020 - 2025",
+      description: "Iniciei o curso buscando uma formação ampla em ciência e tecnologia, com forte foco em matemática e ciências exatas. No entanto, descobri minha verdadeira paixão na programação e decidi seguir esse caminho, aprofundando meus estudos de forma mais prática e aplicada na área de desenvolvimento web."
     }
 ];
 
