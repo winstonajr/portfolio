@@ -49,7 +49,7 @@ const personalInfo = {
   name: "Winston A. Jr",
   title: "Desenvolvedor Web",
   tagline: "Construindo soluções digitais que resolvem problemas reais.",
-  about: "Sou Desenvolvedor Web Júnior focado em criar aplicações web modernas e eficientes. Trabalho com JavaScript, TypeScript, React.js, Next.js e Node.js, desenvolvendo tanto o front-end quanto o back-end. Tenho experiência com banco de dados PostgreSQL via Supabase e integração de APIs, além de criar interfaces responsivas. Estou aberto a novos desafios para crescer e entregar soluções reais.",
+  about: "Sou Desenvolvedor Web focado em criar aplicações web modernas e eficientes. Trabalho com JavaScript, TypeScript, React.js, Next.js e Node.js, desenvolvendo tanto o front-end quanto o back-end. Tenho experiência com banco de dados PostgreSQL via Supabase e integração de APIs, além de criar interfaces responsivas. Estou aberto a novos desafios para crescer e entregar soluções reais.",
   email: "winston.almeidamjr@gmail.com",
   linkedin: "https://linkedin.com/in/winstonajr",
   github: "https://github.com/winstonajr",
