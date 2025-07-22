@@ -14,6 +14,7 @@ import {
     Menu, 
     X, 
     Code,
+    Award,
     Database, 
     AppWindow,
     Briefcase,
@@ -48,7 +49,7 @@ const personalInfo = {
   name: "Winston A. Jr",
   title: "Desenvolvedor Web",
   tagline: "Construindo soluções digitais que resolvem problemas reais.",
-  about: "Sou um desenvolvedor apaixonado por tecnologia e design, com experiência na criação de aplicações web modernas e responsivas. Meu foco é transformar ideias em produtos digitais intuitivos e eficientes, utilizando as melhores práticas do mercado. Fora do código, sou um entusiasta de games de estratégia, ficção científica e um explorador de distribuições Linux no meu tempo livre.",
+  about: "Sou Desenvolvedor Web Júnior focado em criar aplicações web modernas e eficientes. Trabalho com JavaScript, TypeScript, React.js, Next.js e Node.js, desenvolvendo tanto o front-end quanto o back-end. Tenho experiência com banco de dados PostgreSQL via Supabase e integração de APIs, além de criar interfaces responsivas. Estou aberto a novos desafios para crescer e entregar soluções reais.",
   email: "winston.almeidamjr@gmail.com",
   linkedin: "https://linkedin.com/in/winstonajr",
   github: "https://github.com/winstonajr",
@@ -61,7 +62,7 @@ const projects = [
     description: "Website institucional da Igreja Assembleia de Deus Vila Brasil (IADEVIB), com design moderno, agenda de eventos, localização de suas congregações, notifições push via onesignal e painel administrativo para gerenciamento de conteúdo.",
     technologies: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "Supabase", "OneSignal", "Git & Github"],
     liveUrl: "https://www.iadevib.com.br",
-    githubUrl: "#",
+    githubUrl: "",
     imageUrl: "/project-iadevib.png",
   }/*,
   {
@@ -120,13 +121,6 @@ const experiences = [
     },
     {
       type: 'education',
-      title: "Curso Web Moderno Completo com JavaScript + Projetos",
-      company: "Udemy",
-      period: "Fev 2025 - Mai 2025",
-      description: "Formação intensiva em desenvolvimento full stack, cobrindo desde fundamentos de HTML, CSS e JavaScript até tecnologias modernas como React.js, Vue.js, Node.js, Next.js e Firebase. O curso abordou também práticas de UX/UI, versionamento com Git, consumo de APIs, bancos de dados (MongoDB e MySQL), testes, metodologias ágeis e ferramentas como Webpack, Gulp e Tailwind CSS."
-    },
-    {
-      type: 'education',
       title: "Bacharelado Interdisciplinar em Ciência e Tecnologia",
       company: "Universidade Federal do Maranhão ― UFMA",
       period: "2020 - 2025",
@@ -140,6 +134,57 @@ const experiences = [
       description: "Atuei como instrutor voluntário em cursos de introdução à programação com Python para estudantes do ensino médio. Planejei e ministrei aulas sobre lógica de programação, variáveis, estruturas de controle, funções e manipulação de dados. Desenvolvi exercícios práticos, estimulei o pensamento lógico e acompanhei os alunos individualmente. A experiência fortaleceu minhas habilidades de comunicação, didática e liderança."
     }
 ];
+
+const certifications = [
+  {
+    "title": "Curso Web Moderno Completo com JavaScript + Projetos",
+    "issuer": "Udemy",
+    "period": "2025",
+    "description": "Curso completo que abrange JavaScript, HTML, CSS, React, Vue, Node.js e outras tecnologias web."
+  },
+  {
+    "title": "Microsoft 50 Anos - Computação em Nuvem com Azure",
+    "issuer": "DIO",
+    "period": "2025",
+    "description": "Curso sobre computação em nuvem, Azure e inteligência artificial."
+  },
+  {
+    "title": "Ri Happy - Front-end do Zero",
+    "issuer": "DIO",
+    "period": "2025",
+    "description": "Curso introdutório de front-end com foco em HTML, CSS, JavaScript e Git."
+  },
+  {
+    "title": "Discover",
+    "issuer": "Rocketseat",
+    "period": "2025",
+    "description": "Curso sobre desenvolvimento web com JavaScript, HTML, CSS e Git."
+  },
+  {
+    "title": "Imersão Front-End 2ª Edição",
+    "issuer": "Alura",
+    "period": "2025",
+    "description": "Curso imersivo em front-end, JavaScript, CSS, HTML e versionamento de código."
+  },
+  {
+    "title": "O básico de Git e GitHub",
+    "issuer": "Rocketseat",
+    "period": "2025",
+    "description": "Curso introdutório de controle de versão com Git e GitHub."
+  },
+  {
+    "title": "Conectar",
+    "issuer": "Rocketseat",
+    "period": "2022",
+    "description": "Curso sobre programação e controle de versão com Git e GitHub."
+  },
+  {
+    "title": "Jornada Full Stack",
+    "issuer": "Hashtag Treinamentos",
+    "period": "2025",
+    "description": "Curso completo de desenvolvimento full stack com JavaScript, MongoDB e controle de versão."
+  }
+]
 
 // --- COMPONENTES INTERNOS (para organização) ---
 
@@ -187,8 +232,10 @@ const SectionTitle = ({ children }: { children: ReactNode }) => (
   </h2>
 );
 
-export default function PortfolioApp() {
 
+
+export default function PortfolioApp() {
+  const [showAllCertifications, setShowAllCertifications] = useState(false);
 
   const { isSubmitting, statusMessage, submitForm } = useGoogleFormSubmit();
 
@@ -345,20 +392,26 @@ export default function PortfolioApp() {
                 height={400}
                 className="w-full h-56 object-cover" />
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">{project.name}</h3>
-                  <p className="text-slate-600 dark:text-slate-400 mb-4 text-sm leading-relaxed">{project.description}</p>
+                  <h3 className="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">{project.name}</h3>
+                  <p className="text-sm mb-4 text-slate-600 dark:text-slate-400">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map(tech => (
-                      <span key={tech} className="text-xs font-semibold bg-sky-100 dark:bg-sky-900/50 text-sky-800 dark:text-sky-300 px-2 py-1 rounded-full">{tech}</span>
+                    {project.technologies.map((tech, idx) => (
+                      <span key={idx} className="bg-sky-100 dark:bg-sky-900 text-sky-600 dark:text-sky-300 text-xs font-semibold px-2 py-1 rounded-full">
+                        {tech}
+                      </span>
                     ))}
                   </div>
-                  <div className="flex items-center gap-4 mt-6">
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-slate-800 dark:text-slate-100 flex items-center gap-2 hover:text-sky-500 dark:hover:text-sky-400 transition-colors">
-                      Ver Online <ArrowUpRight size={16} />
-                    </a>
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-slate-800 dark:text-slate-100 flex items-center gap-2 hover:text-sky-500 dark:hover:text-sky-400 transition-colors">
-                      Código Fonte <Github size={16} />
-                    </a>
+                  <div className="flex gap-4">
+                    {project.liveUrl && (
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-800 dark:hover:text-sky-400 flex items-center gap-1 font-semibold text-sm transition-colors">
+                        Ver Online <ArrowUpRight size={16} />
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-800 dark:hover:text-slate-400 flex items-center gap-1 font-semibold text-sm transition-colors">
+                        Código <Github size={16} />
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -367,25 +420,51 @@ export default function PortfolioApp() {
         </SectionWrapper>
 
         {/* --- SEÇÃO SKILLS --- */}
+
         <SectionWrapper id="skills">
-          <SectionTitle>Minha Stack de Tecnologias</SectionTitle>
-          <div className="grid md:grid-cols-3 gap-8">
-            {Object.entries(skills).map(([category, skillList]) => (
-              <div key={category} className="bg-slate-50 dark:bg-slate-900 p-6 rounded-lg border border-slate-200 dark:border-slate-800">
-                <h3 className="text-xl font-bold text-sky-500 dark:text-sky-400 mb-6 capitalize flex items-center gap-3">
-                  {category === 'languages' ? <Code/> : category === 'frameworks' ? <AppWindow/> : <Database/>}
-                  {category === 'languages' ? 'Linguagens' : category === 'frameworks' ? 'Frameworks & Bibliotecas' : 'Bancos de Dados & Ferramentas'}
-                </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {skillList.map(skill => (
-                    <div key={skill.name} className="flex items-center gap-3 text-slate-700 dark:text-slate-300">
-                      {React.cloneElement(skill.icon, { className: 'text-slate-400 dark:text-slate-500' })}
-                      <span className="font-medium">{skill.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <SectionTitle>Skills & Tecnologias</SectionTitle>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+              <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-sky-600 dark:text-sky-400">
+                <Code size={20} /> Linguagens
+              </h3>
+              <ul className="flex flex-wrap gap-4">
+                {skills.languages.map((skill, idx) => (
+                  <li key={idx} className="flex flex-col items-center gap-1 text-center w-16 text-slate-700 dark:text-slate-300">
+                    <div className="text-3xl">{skill.icon}</div>
+                    <span className="text-xs">{skill.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-sky-600 dark:text-sky-400">
+                <AppWindow size={20} /> Frameworks & Bibliotecas
+              </h3>
+              <ul className="flex flex-wrap gap-4">
+                {skills.frameworks.map((skill, idx) => (
+                  <li key={idx} className="flex flex-col items-center gap-1 text-center w-16 text-slate-700 dark:text-slate-300">
+                    <div className="text-3xl">{skill.icon}</div>
+                    <span className="text-xs">{skill.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-4 flex items-center gap-2 text-sky-600 dark:text-sky-400">
+                <Database size={20} /> Banco de Dados & Ferramentas
+              </h3>
+              <ul className="flex flex-wrap gap-4">
+                {skills.databases.map((skill, idx) => (
+                  <li key={idx} className="flex flex-col items-center gap-1 text-center w-16 text-slate-700 dark:text-slate-300">
+                    <div className="text-3xl">{skill.icon}</div>
+                    <span className="text-xs">{skill.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </SectionWrapper>
 
@@ -412,6 +491,40 @@ export default function PortfolioApp() {
                     </motion.div>
                 ))}
             </div>
+        </SectionWrapper>
+
+        {/* --- SEÇÃO CERTIFICAÇÕES --- */}
+        <SectionWrapper id="certifications">
+          <SectionTitle>Certificações</SectionTitle>
+          <div className="grid md:grid-cols-2 gap-8">
+          {(showAllCertifications ? certifications : certifications.slice(0, 4)).map((cert, idx) => (
+            <motion.div
+              key={idx}
+              className="bg-slate-50 dark:bg-slate-900 rounded-lg p-6 border border-slate-200 dark:border-slate-800 shadow-sm"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+            >
+              <div className="flex items-center gap-3 mb-2 text-sky-500 dark:text-sky-400">
+                <Award size={24} />
+                <h3 className="text-xl font-semibold text-slate-800 dark:text-slate-100">{cert.title}</h3>
+              </div>
+              <p className="text-sm text-sky-600 dark:text-sky-400 font-semibold">{cert.issuer} • {cert.period}</p>
+              <p className="mt-2 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{cert.description}</p>
+            </motion.div>
+          ))}
+          </div>
+          {certifications.length > 4 && (
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => setShowAllCertifications(!showAllCertifications)}
+                className="bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-6 rounded-md transition-colors duration-300"
+              >
+                {showAllCertifications ? "Ver Menos" : "Ver Mais"}
+              </button>
+            </div>
+          )}
         </SectionWrapper>
 
         {/* --- SEÇÃO CONTATO --- */}
