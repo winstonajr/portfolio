@@ -236,7 +236,8 @@ const SectionTitle = ({ children }: { children: ReactNode }) => (
 
 export default function PortfolioApp() {
   const [showAllCertifications, setShowAllCertifications] = useState(false);
-
+  const [showAllExperience, setShowAllExperience] = useState(false)
+  const visibleExperiences = showAllExperience ? experiences : experiences.slice(0, 2)
   const { isSubmitting, statusMessage, submitForm } = useGoogleFormSubmit();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -272,6 +273,7 @@ export default function PortfolioApp() {
     { href: "#projects", label: "Projetos" },
     { href: "#skills", label: "Skills" },
     { href: "#experience", label: "Jornada" },
+    { href: "#certifications", label: "Certificações"},
     { href: "#contact", label: "Contato" },
   ];
 
@@ -469,29 +471,44 @@ export default function PortfolioApp() {
         </SectionWrapper>
 
         {/* --- SEÇÃO EXPERIÊNCIA E FORMAÇÃO --- */}
-        <SectionWrapper id="experience">
-            <SectionTitle>Minha Jornada</SectionTitle>
-            <div className="relative border-l-2 border-slate-200 dark:border-slate-800 pl-8 md:pl-12">
-                {experiences.map((exp, index) => (
-                    <motion.div 
-                        key={index} 
-                        className="mb-12 relative"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, amount: 0.5 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                    >
-                        <div className="absolute -left-[42px] md:-left-[58px] top-1.5 h-6 w-6 rounded-full bg-white dark:bg-slate-950 border-2 border-sky-500 flex items-center justify-center">
-                            {exp.type === 'work' ? <Briefcase size={14} className="text-sky-500 dark:text-sky-400"/> : exp.type === 'education' ? <GraduationCap size={14} className="text-sky-500 dark:text-sky-400"/> : <HeartHandshake size={14} className="text-sky-500 dark:text-sky-400"/>}
-                        </div>
-                        <p className="text-sm text-slate-500 dark:text-slate-500 font-medium">{exp.period}</p>
-                        <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mt-1">{exp.title}</h3>
-                        <p className="text-sky-500 dark:text-sky-400 font-semibold">{exp.company}</p>
-                        <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm leading-relaxed">{exp.description}</p>
-                    </motion.div>
-                ))}
+    <SectionWrapper id="experience">
+      <SectionTitle>Minha Jornada</SectionTitle>
+      <div className="relative border-l-2 border-slate-200 dark:border-slate-800 pl-8 md:pl-12">
+        {visibleExperiences.map((exp, index) => (
+          <motion.div
+            key={index}
+            className="mb-12 relative"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <div className="absolute -left-[42px] md:-left-[58px] top-1.5 h-6 w-6 rounded-full bg-white dark:bg-slate-950 border-2 border-sky-500 flex items-center justify-center">
+              {exp.type === 'work' ? (
+                <Briefcase size={14} className="text-sky-500 dark:text-sky-400" />
+              ) : exp.type === 'education' ? (
+                <GraduationCap size={14} className="text-sky-500 dark:text-sky-400" />
+              ) : (
+                <HeartHandshake size={14} className="text-sky-500 dark:text-sky-400" />
+              )}
             </div>
-        </SectionWrapper>
+            <p className="text-sm text-slate-500 dark:text-slate-500 font-medium">{exp.period}</p>
+            <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mt-1">{exp.title}</h3>
+            <p className="text-sky-500 dark:text-sky-400 font-semibold">{exp.company}</p>
+            <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm leading-relaxed">{exp.description}</p>
+          </motion.div>
+        ))}
+      </div>
+
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={() => setShowAllExperience(!showAllExperience)}
+            className="bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-6 rounded-md transition-colors duration-300"
+          >
+            {showAllCertifications ? "Ver Menos" : "Ver Mais"}
+          </button>
+        </div>
+    </SectionWrapper>
 
         {/* --- SEÇÃO CERTIFICAÇÕES --- */}
         <SectionWrapper id="certifications">
