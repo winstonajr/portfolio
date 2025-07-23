@@ -137,13 +137,13 @@ const experiences = [
 
 const certifications = [
   {
-    "title": "Curso Web Moderno Completo com JavaScript + Projetos",
+    "title": "Curso Web Moderno",
     "issuer": "Udemy",
     "period": "2025",
     "description": "Curso completo que abrange JavaScript, HTML, CSS, React, Vue, Node.js e outras tecnologias web."
   },
   {
-    "title": "Microsoft 50 Anos - Computação em Nuvem com Azure",
+    "title": "Computação em Nuvem com Azure",
     "issuer": "DIO",
     "period": "2025",
     "description": "Curso sobre computação em nuvem, Azure e inteligência artificial."
