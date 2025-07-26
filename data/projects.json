@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Site da Igreja IADEVIB",
+    "description": "Website institucional da Igreja Assembleia de Deus Vila Brasil (IADEVIB), com design moderno, agenda de eventos, localização de suas congregações, notifições push via onesignal e painel administrativo para gerenciamento de conteúdo.",
+    "technologies": ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "Supabase", "OneSignal", "Git & Github"],
+    "liveUrl": "https://www.iadevib.com.br",
+    "githubUrl": "",
+    "imageUrl": "/project-iadevib.png"
+  },
+  {
+    "name": "Convite de Casamento - Melk & Sabrina",
+    "description": "Convite de casamento digital interativo feito com Vue.js, oferecendo um design elegante e responsivo. Conta com formulário de confirmação (RSVP) via Google Forms, galeria de fotos, QR Code para presentes via Pix e modais personalizados para navegação fluida.",
+    "technologies": ["Vue.js", "Vite", "TypeScript", "Tailwind CSS", "Google Forms", "Git & GitHub"],
+    "liveUrl": "",
+    "githubUrl": "",
+    "imageUrl": "/project-convite-melkesabrina.png"
+  },
+  {
+    "name": "Convite de Casamento - Silmayra & Lucas",
+    "description": "Site de convite de casamento criado com Next.js e Tailwind CSS, com foco em performance e experiência do usuário. Possui RSVP integrado via Google Forms, sessão de presentes via Pix com QR Code, frases personalizadas e layout moderno.",
+    "technologies": ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "Google Forms", "Git & GitHub"],
+    "liveUrl": "",
+    "githubUrl": "",
+    "imageUrl": "/project-convite-silelucas.png"
+  }
+]

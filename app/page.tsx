@@ -3,6 +3,10 @@
 import React, { useState, useEffect, ReactNode } from 'react';
 import { motion, useAnimation, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import personalInfo from "../data/personalInfo.json"
+import projects from "../data/projects.json"
+import experiences from "../data/experiences.json"
+import certifications from "../data/certifications.json"
 import Image from 'next/image';
 import { useGoogleFormSubmit } from './useGoogleFormSubmit';
 import { 
@@ -45,44 +49,6 @@ import {
 
 // --- DADOS MOCKADOS ---
 
-const personalInfo = {
-  name: "Winston A. Jr",
-  title: "Desenvolvedor Web",
-  tagline: "Construindo soluções digitais que resolvem problemas reais.",
-  about: "Sou Desenvolvedor Web focado em criar aplicações web modernas e eficientes. Trabalho com JavaScript, TypeScript, React.js, Next.js e Node.js, desenvolvendo tanto o front-end quanto o back-end. Tenho experiência com banco de dados PostgreSQL via Supabase e integração de APIs, além de criar interfaces responsivas. Estou aberto a novos desafios para crescer e entregar soluções reais.",
-  email: "winston.almeidamjr@gmail.com",
-  linkedin: "https://linkedin.com/in/winstonajr",
-  github: "https://github.com/winstonajr",
-  instagram: "https://instagram.com/win_ajr"
-};
-
-const projects = [
-  {
-    name: "Site da Igreja IADEVIB",
-    description: "Website institucional da Igreja Assembleia de Deus Vila Brasil (IADEVIB), com design moderno, agenda de eventos, localização de suas congregações, notifições push via onesignal e painel administrativo para gerenciamento de conteúdo.",
-    technologies: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "Supabase", "OneSignal", "Git & Github"],
-    liveUrl: "https://www.iadevib.com.br",
-    githubUrl: "",
-    imageUrl: "/project-iadevib.png",
-  }/*,
-  {
-    name: "App de Gerenciamento de Tarefas",
-    description: "Um Kanban board interativo com funcionalidade de arrastar e soltar, autenticação de usuários e persistência de dados em tempo real com Firebase.",
-    technologies: ["React", "Vite", "Firebase", "Zustand", "Framer Motion"],
-    liveUrl: "#",
-    githubUrl: "#",
-    imageUrl: "/project-default.png",
-  },
-  {
-    name: "Landing Page para SaaS",
-    description: "Página de captura de leads com design moderno, animações e integração com Mailchimp para campanhas de marketing.",
-    technologies: ["Astro", "Solid.js", "Tailwind CSS", "GSAP"],
-    liveUrl: "#",
-    githubUrl: "#",
-    imageUrl: "/project-default.png",
-  },*/
-];
-
 const skills = {
   languages: [
     { name: "JavaScript", icon: <SiJavascript/> },
@@ -110,81 +76,6 @@ const skills = {
     { name: "GitHub", icon: <SiGithub /> },
   ]
 }
-
-const experiences = [
-    {
-      type: 'education',/*work or freelance*/
-      title: "Análise e Desenvolvimento de Sistemas",
-      company: "Faculdade Facint (Vincit)",
-      period: "2025 - 2027",
-      description: "Formação técnica e prática voltada para o desenvolvimento de software e aplicações web. Tenho aprofundado conhecimentos em lógica de programação, banco de dados, front-end, back-end e arquitetura de sistemas, alinhando os estudos ao que aplico em projetos reais."
-    },
-    {
-      type: 'education',
-      title: "Bacharelado Interdisciplinar em Ciência e Tecnologia",
-      company: "Universidade Federal do Maranhão ― UFMA",
-      period: "2020 - 2025",
-      description: "Iniciei o curso buscando uma formação ampla em ciência e tecnologia, com forte foco em matemática e ciências exatas. No entanto, descobri minha verdadeira paixão na programação e decidi seguir esse caminho, aprofundando meus estudos de forma mais prática e aplicada na área de desenvolvimento web."
-    },
-    {
-      type: 'work',
-      title: "Instrutor Voluntário – Introdução à Programação com Python",
-      company: "Rede de Aplicação de Ciência e Tecnologia ― ReACT",
-      period: "Set 2022 - Dez 2022 / Mar 2023 - Jun 2023",
-      description: "Atuei como instrutor voluntário em cursos de introdução à programação com Python para estudantes do ensino médio. Planejei e ministrei aulas sobre lógica de programação, variáveis, estruturas de controle, funções e manipulação de dados. Desenvolvi exercícios práticos, estimulei o pensamento lógico e acompanhei os alunos individualmente. A experiência fortaleceu minhas habilidades de comunicação, didática e liderança."
-    }
-];
-
-const certifications = [
-  {
-    "title": "Curso Web Moderno",
-    "issuer": "Udemy",
-    "period": "2025",
-    "description": "Curso completo que abrange JavaScript, HTML, CSS, React, Vue, Node.js e outras tecnologias web."
-  },
-  {
-    "title": "Computação em Nuvem com Azure",
-    "issuer": "DIO",
-    "period": "2025",
-    "description": "Curso sobre computação em nuvem, Azure e inteligência artificial."
-  },
-  {
-    "title": "Ri Happy - Front-end do Zero",
-    "issuer": "DIO",
-    "period": "2025",
-    "description": "Curso introdutório de front-end com foco em HTML, CSS, JavaScript e Git."
-  },
-  {
-    "title": "Discover",
-    "issuer": "Rocketseat",
-    "period": "2025",
-    "description": "Curso sobre desenvolvimento web com JavaScript, HTML, CSS e Git."
-  },
-  {
-    "title": "Imersão Front-End 2ª Edição",
-    "issuer": "Alura",
-    "period": "2025",
-    "description": "Curso imersivo em front-end, JavaScript, CSS, HTML e versionamento de código."
-  },
-  {
-    "title": "O básico de Git e GitHub",
-    "issuer": "Rocketseat",
-    "period": "2025",
-    "description": "Curso introdutório de controle de versão com Git e GitHub."
-  },
-  {
-    "title": "Conectar",
-    "issuer": "Rocketseat",
-    "period": "2022",
-    "description": "Curso sobre programação e controle de versão com Git e GitHub."
-  },
-  {
-    "title": "Jornada Full Stack",
-    "issuer": "Hashtag Treinamentos",
-    "period": "2025",
-    "description": "Curso completo de desenvolvimento full stack com JavaScript, MongoDB e controle de versão."
-  }
-]
 
 // --- COMPONENTES INTERNOS (para organização) ---
 
