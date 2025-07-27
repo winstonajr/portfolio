@@ -128,7 +128,8 @@ const SectionTitle = ({ children }: { children: ReactNode }) => (
 export default function PortfolioApp() {
   const [showAllCertifications, setShowAllCertifications] = useState(false);
   const [showAllExperience, setShowAllExperience] = useState(false)
-  const visibleExperiences = showAllExperience ? experiences : experiences.slice(0, 2)
+  const [showAllProjects, setShowAllProjects] = useState(false)
+  
   const { isSubmitting, statusMessage, submitForm } = useGoogleFormSubmit();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -272,7 +273,7 @@ export default function PortfolioApp() {
         <SectionWrapper id="projects">
           <SectionTitle>Projetos em Destaque</SectionTitle>
           <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
+            {(showAllProjects ? projects : projects.slice(0, 2)).map((project, index) => (
               <motion.div
                 key={index}
                 className="bg-slate-50 dark:bg-slate-900 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 group transition-all duration-300 hover:shadow-xl dark:hover:shadow-2xl dark:hover:shadow-sky-900/30 hover:border-sky-500/30 dark:hover:border-sky-500/50"
@@ -306,9 +307,18 @@ export default function PortfolioApp() {
                       </a>
                     )}
                   </div>
-                </div>
+                </div> 
               </motion.div>
             ))}
+            {projects.length > 2 && (
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => setShowAllProjects(!showAllProjects)}
+                className="bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-6 rounded-md transition-colors duration-300">
+                  {showAllProjects ? "Ver Menos" : "Ver Mais"}
+              </button>
+            </div>
+          )}
           </div>
         </SectionWrapper>
 
@@ -365,7 +375,7 @@ export default function PortfolioApp() {
     <SectionWrapper id="experience">
       <SectionTitle>Minha Jornada</SectionTitle>
       <div className="relative border-l-2 border-slate-200 dark:border-slate-800 pl-8 md:pl-12">
-        {visibleExperiences.map((exp, index) => (
+        {(showAllExperience ? experiences : experiences.slice(0, 2)).map((exp, index) => (
           <motion.div
             key={index}
             className="mb-12 relative"
@@ -405,7 +415,7 @@ export default function PortfolioApp() {
         <SectionWrapper id="certifications">
           <SectionTitle>Certificações</SectionTitle>
           <div className="grid md:grid-cols-2 gap-8">
-          {(showAllCertifications ? certifications : certifications.slice(0, 4)).map((cert, idx) => (
+          {(showAllCertifications ? certifications : certifications.slice(0, 3)).map((cert, idx) => (
             <motion.div
               key={idx}
               className="bg-slate-50 dark:bg-slate-900 rounded-lg p-6 border border-slate-200 dark:border-slate-800 shadow-sm"
@@ -423,7 +433,7 @@ export default function PortfolioApp() {
             </motion.div>
           ))}
           </div>
-          {certifications.length > 4 && (
+          {certifications.length > 3 && (
             <div className="flex justify-center mt-8">
               <button
                 onClick={() => setShowAllCertifications(!showAllCertifications)}
