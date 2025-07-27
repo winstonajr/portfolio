@@ -9,7 +9,7 @@
   },
   {
     "name": "Convite de Casamento - Melk & Sabrina",
-    "description": "Convite de casamento digital interativo feito com Vue.js, oferecendo um design elegante e responsivo. Conta com formulário de confirmação (RSVP) via Google Forms, galeria de fotos, QR Code para presentes via Pix e modais personalizados para navegação fluida.",
+    "description": "Convite de casamento digital interativo feito com Vue.js, oferecendo um design elegante e responsivo. Conta com formulário de confirmação (RSVP) via Google Forms, QR Code para presentes via Pix e modais personalizados para navegação fluida.",
     "technologies": ["Vue.js", "Vite", "TypeScript", "Tailwind CSS", "Google Forms", "Git & GitHub"],
     "liveUrl": "",
     "githubUrl": "",
