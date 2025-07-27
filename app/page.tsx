@@ -143,7 +143,7 @@ export default function PortfolioApp() {
       return;
     }
 
-    const formUrl = "https://docs.google.com/forms/d/1jdnpN78ItdhzynYOMXRoDVrmK8Gjk77K-yYEl-cDcic/formResponse";
+    const formUrl = process.env.NEXT_PUBLIC_MAPS_URL as string;
     await submitForm(formData, formUrl);
     form.reset();
   };
@@ -276,15 +276,20 @@ export default function PortfolioApp() {
             {(showAllProjects ? projects : projects.slice(0, 2)).map((project, index) => (
               <motion.div
                 key={index}
+                
                 className="bg-slate-50 dark:bg-slate-900 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 group transition-all duration-300 hover:shadow-xl dark:hover:shadow-2xl dark:hover:shadow-sky-900/30 hover:border-sky-500/30 dark:hover:border-sky-500/50"
                 whileHover={{ y: -5 }}
-              >
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}  >
                 <Image 
                 src={project.imageUrl} 
                 alt={`Thumbnail do projeto ${project.name}`} 
                 width={600}
                 height={400}
                 className="w-full h-56 object-cover" />
+                
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">{project.name}</h3>
                   <p className="text-sm mb-4 text-slate-600 dark:text-slate-400">{project.description}</p>
@@ -310,7 +315,7 @@ export default function PortfolioApp() {
                 </div> 
               </motion.div>
             ))}
-            {projects.length > 2 && (
+          </div>
             <div className="flex justify-center mt-8">
               <button
                 onClick={() => setShowAllProjects(!showAllProjects)}
@@ -318,8 +323,6 @@ export default function PortfolioApp() {
                   {showAllProjects ? "Ver Menos" : "Ver Mais"}
               </button>
             </div>
-          )}
-          </div>
         </SectionWrapper>
 
         {/* --- SEÇÃO SKILLS --- */}
@@ -415,7 +418,7 @@ export default function PortfolioApp() {
         <SectionWrapper id="certifications">
           <SectionTitle>Certificações</SectionTitle>
           <div className="grid md:grid-cols-2 gap-8">
-          {(showAllCertifications ? certifications : certifications.slice(0, 3)).map((cert, idx) => (
+          {(showAllCertifications ? certifications : certifications.slice(0, 4)).map((cert, idx) => (
             <motion.div
               key={idx}
               className="bg-slate-50 dark:bg-slate-900 rounded-lg p-6 border border-slate-200 dark:border-slate-800 shadow-sm"
@@ -433,7 +436,6 @@ export default function PortfolioApp() {
             </motion.div>
           ))}
           </div>
-          {certifications.length > 3 && (
             <div className="flex justify-center mt-8">
               <button
                 onClick={() => setShowAllCertifications(!showAllCertifications)}
@@ -442,7 +444,6 @@ export default function PortfolioApp() {
                 {showAllCertifications ? "Ver Menos" : "Ver Mais"}
               </button>
             </div>
-          )}
         </SectionWrapper>
 
         {/* --- SEÇÃO CONTATO --- */}
