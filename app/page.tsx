@@ -194,9 +194,13 @@ export default function PortfolioApp() {
             ))}
           </div>
           <div className="md:hidden">
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 rounded-md text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+            <motion.button
+            whileTap={{ scale: 0.95 }}
+            animate={{ rotate: isMenuOpen ? 90 : 0 }}
+            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+            className="p-2 rounded-md text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            </motion.button>
           </div>
         </nav>
         {/* Menu Mobile */}
