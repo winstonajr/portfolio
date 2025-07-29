@@ -129,6 +129,10 @@ export default function PortfolioApp() {
   const [showAllCertifications, setShowAllCertifications] = useState(false);
   const [showAllExperience, setShowAllExperience] = useState(false)
   const [showAllProjects, setShowAllProjects] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   
   const { isSubmitting, statusMessage, submitForm } = useGoogleFormSubmit();
 
@@ -148,17 +152,25 @@ export default function PortfolioApp() {
     form.reset();
   };
 
+useEffect(() => {
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+    setIsScrolled(currentScrollY > 10);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      setShowHeader(false);
+      setIsMenuOpen(false);
+    } else {
+      setShowHeader(true);
+    }
+
+    setLastScrollY(currentScrollY);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [lastScrollY]);
 
   const navLinks = [
     { href: "#about", label: "Sobre" },
@@ -181,7 +193,10 @@ export default function PortfolioApp() {
   return (
     <div className="bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 antialiased">
       {/* --- CABEÇALHO --- */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800' : 'bg-transparent'}`}>
+      <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 
+      ${isScrolled ? 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800' : 'bg-transparent'}
+      ${showHeader ? 'translate-y-0' : '-translate-y-full'}`}>
         <nav className="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center h-20">
           <a href="#" className="text-2xl font-bold text-slate-900 dark:text-slate-100 hover:text-sky-500 dark:hover:text-sky-400 transition-colors">
             {personalInfo.name.split(' ')[0]}<span className="text-sky-500 dark:text-sky-400">.</span>
