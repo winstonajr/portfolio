@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.winstonajr.com.br/sitemap.xml
