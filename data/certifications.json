@@ -6,22 +6,10 @@
     "description": "Curso completo que abrange JavaScript, HTML, CSS, React, Vue, Node.js e outras tecnologias web."
   },
   {
-    "title": "Computação em Nuvem com Azure",
-    "issuer": "DIO",
-    "period": "2025",
-    "description": "Curso sobre computação em nuvem, Azure e inteligência artificial."
-  },
-  {
     "title": "Ri Happy - Front-end do Zero",
     "issuer": "DIO",
     "period": "2025",
     "description": "Curso introdutório de front-end com foco em HTML, CSS, JavaScript e Git."
-  },
-  {
-    "title": "Discover",
-    "issuer": "Rocketseat",
-    "period": "2025",
-    "description": "Curso sobre desenvolvimento web com JavaScript, HTML, CSS e Git."
   },
   {
     "title": "Imersão Front-End 2ª Edição",
@@ -34,6 +22,18 @@
     "issuer": "Rocketseat",
     "period": "2025",
     "description": "Curso introdutório de controle de versão com Git e GitHub."
+  },
+  {
+    "title": "Discover",
+    "issuer": "Rocketseat",
+    "period": "2025",
+    "description": "Curso sobre desenvolvimento web com JavaScript, HTML, CSS e Git."
+  },
+  {
+    "title": "Computação em Nuvem com Azure",
+    "issuer": "DIO",
+    "period": "2025",
+    "description": "Curso sobre computação em nuvem, Azure e inteligência artificial."
   },
   {
     "title": "Conectar",
