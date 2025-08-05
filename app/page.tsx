@@ -4,7 +4,7 @@ import React, { useState, useEffect, ReactNode } from 'react';
 import { motion, useAnimation, useScroll, useTransform, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
-import { Github, Linkedin, Instagram, Mail, ArrowUpRight, Menu, X, Code, Award, Database, AppWindow, Briefcase, GraduationCap, HeartHandshake, Sun, Moon } from 'lucide-react';
+import { Github, Linkedin, Instagram, Mail, ArrowUpRight, Menu, X, Code, Award, Database, AppWindow, Briefcase, GraduationCap, HeartHandshake } from 'lucide-react';
 import { SiJavascript, SiTypescript, SiPython, SiHtml5, SiCss3, SiReact, SiVuedotjs, SiNextdotjs, SiNodedotjs, SiTailwindcss, SiBootstrap, SiPostgresql, SiMongodb, SiFirebase, SiSupabase, SiMysql, SiGit, SiGithub, SiExpress } from 'react-icons/si';
 
 // Importando os dados e o hook
@@ -33,33 +33,6 @@ const skills = {
 };
 
 // --- NOVOS COMPONENTES E HOOKS ---
-
-// Hook para gerenciar o tema (Dark/Light)
-const useTheme = () => {
-  const [theme, setTheme] = useState('dark');
-
-  useEffect(() => {
-    const storedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
-    setTheme(initialTheme);
-  }, []);
-
-  useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
-  };
-
-  return { theme, toggleTheme };
-};
 
 // Componente para o efeito de "holofote" no cursor
 const CursorSpotlight = () => {
@@ -131,7 +104,6 @@ export default function PortfolioApp() {
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const { theme, toggleTheme } = useTheme();
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const { isSubmitting, statusMessage, submitForm } = useGoogleFormSubmit();
 
@@ -195,8 +167,9 @@ export default function PortfolioApp() {
     offset: ["start center", "end end"],
   });
   const timelineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-
-
+    const formsName = process.env.NEXT_PUBLIC_ENTRY_NAME
+    const formsEmail = process.env.NEXT_PUBLIC_ENTRY_EMAIL
+    const formsMessage = process.env.NEXT_PUBLIC_ENTRY_MENSAGEM
   return (
     <div className="bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 antialiased selection:bg-sky-500/20">
       {!prefersReducedMotion && <CursorSpotlight />}
@@ -215,18 +188,8 @@ export default function PortfolioApp() {
                 {link.label}
               </a>
             ))}
-            <motion.button
-                onClick={toggleTheme} whileTap={{ scale: 0.9, rotate: 15 }} aria-label="Alternar tema"
-                className="p-2 rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
-                {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-            </motion.button>
           </div>
           <div className="md:hidden flex items-center gap-2">
-             <motion.button
-                onClick={toggleTheme} whileTap={{ scale: 0.9, rotate: 15 }} aria-label="Alternar tema"
-                className="p-2 rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
-                {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-            </motion.button>
             <motion.button
               whileTap={{ scale: 0.95 }} animate={{ rotate: isMenuOpen ? 90 : 0 }}
               onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Abrir menu"
@@ -378,16 +341,16 @@ export default function PortfolioApp() {
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Nome</label>
-                    <input type="text" id="name" name="entry.46536760" required className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-md p-3 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition" />
+                    <input type="text" id="name" name={formsName} required className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-md p-3 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition" />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Email</label>
-                    <input type="email" id="email" name="entry.2099436681" required className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-md p-3 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition" />
+                    <input type="email" id="email" name={formsEmail} required className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-md p-3 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition" />
                   </div>
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Mensagem</label>
-                  <textarea id="message" name="entry.206049528" rows={4} required className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-md p-3 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition"></textarea>
+                  <textarea id="message" name={formsMessage} rows={4} required className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-md p-3 text-slate-900 dark:text-slate-100 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition"></textarea>
                 </div>
                 <button type="submit" disabled={isSubmitting} className="w-full bg-sky-600 text-white font-bold py-3 px-6 rounded-md hover:bg-sky-500 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed">{isSubmitting ? "Enviando..." : "Enviar Mensagem"}</button>
             </form>
@@ -408,7 +371,6 @@ export default function PortfolioApp() {
       <footer className="bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-6 text-center text-sm text-slate-500 dark:text-slate-500">
           <p>&copy; {new Date().getFullYear()} {personalInfo.name}. Todos os direitos reservados.</p>
-          <p className="mt-2">Construído com Next.js, Tailwind CSS e Framer Motion. ❤️</p>
         </div>
       </footer>
     </div>
