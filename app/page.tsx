@@ -248,8 +248,8 @@ export default function PortfolioApp() {
                 className="bg-slate-100/50 dark:bg-slate-900/50 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 group transition-all duration-300 hover:!border-sky-500/50 hover:shadow-xl dark:hover:shadow-2xl dark:hover:shadow-sky-900/30 relative"
                 whileHover={{ y: -8 }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}>
                 <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:from-white/5"></div>
-                <div className="relative z-10">
-                  <Image src={project.imageUrl} alt={`Thumbnail do projeto ${project.name}`} width={600} height={400} className="w-full h-56 object-cover" />
+                <div className="aspect-[3/2] w-full">
+                  <Image src={project.imageUrl} alt={`Thumbnail do projeto ${project.name}`} width={600} height={400} className="w-full h-56 md:h-72 lg:h-80 object-cover" />
                   <div className="p-6">
                     <h3 className="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">{project.name}</h3>
                     <p className="text-sm mb-4 text-slate-600 dark:text-slate-400">{project.description}</p>
