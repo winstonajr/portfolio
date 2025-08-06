@@ -22,7 +22,7 @@ const skills = {
   ],
   frameworks: [
     { name: "React", icon: <SiReact/> }, { name: "Vue.js", icon: <SiVuedotjs/> }, { name: "Next.js", icon: <SiNextdotjs /> },
-    { name: "Node.js", icon: <SiNodedotjs/> }, { name: "Express", icon: <SiExpress /> }, { name: "Tailwind CSS", icon: <SiTailwindcss/> },
+    { name: "Node.js", icon: <SiNodedotjs/> }, { name: "Express", icon: <SiExpress /> }, { name: "Tailwindcss", icon: <SiTailwindcss/> },
     { name: "Bootstrap", icon: <SiBootstrap/> },
   ],
   databases: [
