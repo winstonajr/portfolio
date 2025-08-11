@@ -4,7 +4,7 @@
     "description": "Website institucional da Igreja Assembleia de Deus Vila Brasil (IADEVIB), com design moderno, agenda de eventos, localização de suas congregações, notifições push via onesignal e painel administrativo para gerenciamento de conteúdo.",
     "technologies": ["Next.js", "React.js", "TypeScript", "Tailwindcss", "Supabase", "OneSignal", "Vercel","Git & Github"],
     "liveUrl": "https://www.iadevib.com.br",
-    "githubUrl": "#",
+    "githubUrl": "",
     "imageUrl": "/project-iadevib.png"
   },
   {
