@@ -1,20 +1,30 @@
+// Indica que este é um Componente de Cliente no Next.js, 
+// o que significa que ele será executado no navegador e pode usar hooks como useState e useEffect.
 'use client';
 
+// --- IMPORTAÇÕES ---
 import React, { useState, useEffect, ReactNode } from 'react';
+// Framer Motion para animações sofisticadas e baseadas em física.
 import { motion, useAnimation, useScroll, useTransform, Variants } from 'framer-motion';
+// Hook para detectar quando um elemento entra na área visível da tela.
 import { useInView } from 'react-intersection-observer';
+// Componente de imagem otimizado do Next.js.
 import Image from 'next/image';
+// Ícones da biblioteca Lucide React, para um design limpo e consistente.
 import { Github, Linkedin, Instagram, Mail, ArrowUpRight, Menu, X, Code, Award, Database, AppWindow, Briefcase, GraduationCap, HeartHandshake } from 'lucide-react';
+// Ícones de tecnologias específicas da biblioteca React Icons.
 import { SiJavascript, SiTypescript, SiPython, SiHtml5, SiCss3, SiReact, SiVuedotjs, SiNextdotjs, SiNodedotjs, SiTailwindcss, SiBootstrap, SiPostgresql, SiMongodb, SiFirebase, SiSupabase, SiMysql, SiGit, SiGithub, SiExpress } from 'react-icons/si';
 
-// Importando os dados e o hook
+// Importando dados estáticos de arquivos JSON para manter o código limpo.
 import personalInfo from "../data/personalInfo.json";
 import projects from "../data/projects.json";
 import experiences from "../data/experiences.json";
 import certifications from "../data/certifications.json";
+// Hook personalizado para lidar com o envio de formulários para uma Planilha Google.
 import { useGoogleFormSubmit } from './hooks/useGoogleFormSubmit';
 
-// --- DADOS MOCKADOS (para os ícones) ---
+// --- DADOS MOCKADOS (para os ícones de Skills) ---
+// Um objeto que mapeia as categorias de habilidades aos seus respectivos ícones.
 const skills = {
   languages: [
     { name: "JavaScript", icon: <SiJavascript/> }, { name: "TypeScript", icon: <SiTypescript/> },
@@ -22,7 +32,7 @@ const skills = {
   ],
   frameworks: [
     { name: "React", icon: <SiReact/> }, { name: "Vue.js", icon: <SiVuedotjs/> }, { name: "Next.js", icon: <SiNextdotjs /> },
-    { name: "Node.js", icon: <SiNodedotjs/> }, { name: "Express", icon: <SiExpress /> }, { name: "Tailwindcss", icon: <SiTailwindcss/> },
+    { name: "Node.js", icon: <SiNodedotjs/> }, { name: "Express", icon: <SiExpress /> }, { name: "Tailwind", icon: <SiTailwindcss/> },
     { name: "Bootstrap", icon: <SiBootstrap/> },
   ],
   databases: [
@@ -32,31 +42,39 @@ const skills = {
   ]
 };
 
-// --- NOVOS COMPONENTES E HOOKS ---
+// --- COMPONENTES AUXILIARES ---
 
-// Componente para o efeito de "holofote" no cursor
+/**
+ * Componente para o efeito de "holofote" que segue o cursor do mouse.
+ * É um detalhe visual sutil para desktops.
+ */
 const CursorSpotlight = () => {
+  // Estado para armazenar a posição (x, y) do cursor.
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
+    // Função que atualiza a posição do cursor no estado.
     const handleMouseMove = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
+    // Adiciona o ouvinte de evento quando o componente é montado.
     window.addEventListener('mousemove', handleMouseMove);
+    // Remove o ouvinte quando o componente é desmontado para evitar vazamentos de memória.
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  }, []); // O array vazio significa que este efeito só roda uma vez (na montagem).
 
   return (
     <motion.div
       className="pointer-events-none fixed inset-0 z-30 transition duration-300 hidden md:block"
       style={{
+        // Usa um gradiente radial que se centraliza na posição do cursor.
         background: `radial-gradient(600px at ${position.x}px ${position.y}px, rgba(29, 78, 216, 0.15), transparent 80%)`,
       }}
     ></motion.div>
   );
 };
 
-// --- COMPONENTES INTERNOS ---
+// --- COMPONENTES DE LAYOUT ---
 
 interface SectionWrapperProps {
   children: ReactNode;
@@ -64,14 +82,22 @@ interface SectionWrapperProps {
   className?: string;
 }
 
+/**
+ * Um componente "wrapper" para seções que aplica uma animação de fade-in + slide-up
+ * quando a seção entra na tela.
+ */
 const SectionWrapper = ({ children, id, className = '' }: SectionWrapperProps) => {
+  // Controles de animação do Framer Motion.
   const controls = useAnimation();
+  // Hook que observa se o componente está visível. `triggerOnce` faz a animação rodar só uma vez.
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   useEffect(() => {
+    // Inicia a animação 'visible' quando o componente entra na view.
     if (inView) controls.start('visible');
   }, [controls, inView]);
 
+  // Variantes de animação para o Framer Motion.
   const variants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -87,26 +113,41 @@ const SectionWrapper = ({ children, id, className = '' }: SectionWrapperProps) =
   );
 };
 
+/**
+ * Um componente simples para padronizar os títulos das seções.
+ */
 const SectionTitle = ({ children }: { children: ReactNode }) => (
   <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-100 mb-16 text-center">
     {children}
   </h2>
 );
 
-// --- COMPONENTE PRINCIPAL ---
+// --- COMPONENTE PRINCIPAL DA PÁGINA ---
 
 export default function PortfolioApp() {
+  // --- ESTADOS (State Hooks) ---
+  // Controla se a lista completa ou a versão curta das certificações é mostrada.
   const [showAllCertifications, setShowAllCertifications] = useState(false);
+  // Controla a exibição da lista de experiências.
   const [showAllExperience, setShowAllExperience] = useState(false);
+  // Controla a exibição da lista de projetos.
   const [showAllProjects, setShowAllProjects] = useState(false);
+  // Controla a abertura e fechamento do menu mobile.
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Detecta se a página foi rolada para baixo para estilizar o header.
   const [isScrolled, setIsScrolled] = useState(false);
+  // Controla a visibilidade do header (esconde ao rolar para baixo, mostra ao rolar para cima).
   const [showHeader, setShowHeader] = useState(true);
+  // Armazena a última posição de scroll para determinar a direção da rolagem.
   const [lastScrollY, setLastScrollY] = useState(0);
-
+  // Estado para verificar a preferência do usuário por movimento reduzido (acessibilidade).
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  // Desestrutura os valores retornados pelo hook de formulário.
   const { isSubmitting, statusMessage, submitForm } = useGoogleFormSubmit();
 
+  // --- EFEITOS (useEffect Hooks) ---
+
+  // Verifica a preferência de "movimento reduzido" do sistema operacional do usuário.
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(mediaQuery.matches);
@@ -115,73 +156,91 @@ export default function PortfolioApp() {
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
+  // Manipula a submissão do formulário de contato.
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault(); // Previne o comportamento padrão de recarregar a página.
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    // Campo "honeypot" para pegar bots. Se preenchido, ignora a submissão.
     if (formData.get('honeypot')) return;
 
-    // Lembre-se de adicionar esta variável de ambiente!
     const formUrl = process.env.NEXT_PUBLIC_GOOGLE_FORM_URL as string;
     await submitForm(formData, formUrl);
-    form.reset();
+    form.reset(); // Limpa o formulário após o envio.
   };
 
+  // Controla a visibilidade e o estilo do header com base no scroll.
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setIsScrolled(currentScrollY > 10);
+      setIsScrolled(currentScrollY > 10); // Header ganha fundo se rolar mais de 10px.
+      // Header aparece se o scroll for para cima ou se estiver no topo.
       setShowHeader(currentScrollY < lastScrollY || currentScrollY < 100);
-      setLastScrollY(currentScrollY);
+      setLastScrollY(currentScrollY); // Atualiza a última posição.
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  // --- DADOS E HANDLERS ---
+
+  // Array de links para a navegação.
   const navLinks = [
     { href: "#about", label: "Sobre" }, { href: "#projects", label: "Projetos" },
     { href: "#skills", label: "Skills" }, { href: "#experience", label: "Jornada" },
     { href: "#certifications", label: "Certificações"}, { href: "#contact", label: "Contato" },
   ];
 
+  // Função para rolagem suave ao clicar nos links de navegação.
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-    setIsMenuOpen(false);
+    setIsMenuOpen(false); // Fecha o menu mobile após o clique.
   };
 
+  // Variantes de animação para a seção Hero (topo da página).
   const heroVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } }, // Anima os filhos em cascata.
   };
 
   const heroItemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
-
+  
+  // Hooks do Framer Motion para animar a linha do tempo na seção "Jornada".
   const timelineRef = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: timelineRef,
     offset: ["start center", "end end"],
   });
+  // Transforma o progresso do scroll (0 a 1) na altura da linha (0% a 100%).
   const timelineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-    const formsName = process.env.NEXT_PUBLIC_ENTRY_NAME
-    const formsEmail = process.env.NEXT_PUBLIC_ENTRY_EMAIL
-    const formsMessage = process.env.NEXT_PUBLIC_ENTRY_MENSAGEM
+  
+  // Busca os nomes dos campos do formulário a partir de variáveis de ambiente.
+  const formsName = process.env.NEXT_PUBLIC_ENTRY_NAME;
+  const formsEmail = process.env.NEXT_PUBLIC_ENTRY_EMAIL;
+  const formsMessage = process.env.NEXT_PUBLIC_ENTRY_MENSAGEM;
+  
+  // --- RENDERIZAÇÃO DO JSX ---
   return (
     <div className="bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 antialiased selection:bg-sky-500/20">
+      {/* Renderiza o efeito de holofote apenas se o usuário não tiver preferência por movimento reduzido */}
       {!prefersReducedMotion && <CursorSpotlight />}
 
+      {/* --- HEADER --- */}
       <header 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 
         ${isScrolled ? 'bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800' : 'bg-transparent'}
         ${showHeader ? 'translate-y-0' : '-translate-y-full'}`}>
         <nav className="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center h-20">
+          {/* Logo/Nome */}
           <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="text-2xl font-bold text-slate-900 dark:text-slate-100 hover:text-sky-500 dark:hover:text-sky-400 transition-colors">
             {personalInfo.name.split(' ')[0]}<span className="text-sky-500 dark:text-sky-400">.</span>
           </a>
+          {/* Navegação para Desktop */}
           <div className="hidden md:flex items-center gap-6">
             {navLinks.map(link => (
               <a key={link.href} href={link.href} onClick={(e) => handleNavClick(e, link.href)} className="text-sm font-medium hover:text-sky-500 dark:hover:text-sky-400 transition-colors">
@@ -189,6 +248,7 @@ export default function PortfolioApp() {
               </a>
             ))}
           </div>
+          {/* Botão do Menu Mobile */}
           <div className="md:hidden flex items-center gap-2">
             <motion.button
               whileTap={{ scale: 0.95 }} animate={{ rotate: isMenuOpen ? 90 : 0 }}
@@ -198,6 +258,7 @@ export default function PortfolioApp() {
             </motion.button>
           </div>
         </nav>
+        {/* Painel do Menu Mobile */}
         {isMenuOpen && (
           <motion.div 
             initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}
@@ -212,6 +273,7 @@ export default function PortfolioApp() {
       </header>
 
       <main className="relative z-10">
+        {/* --- SEÇÃO HERO (HOME) --- */}
         <section id="home" className="min-h-screen flex items-center justify-center text-center px-6">
           <motion.div variants={heroVariants} initial="hidden" animate="visible" className="flex flex-col items-center gap-4">
             <motion.h1 variants={heroItemVariants} className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 dark:text-slate-100">{personalInfo.name}</motion.h1>
@@ -226,6 +288,7 @@ export default function PortfolioApp() {
           </motion.div>
         </section>
 
+        {/* --- SEÇÃO SOBRE MIM --- */}
         <SectionWrapper id="about">
           <SectionTitle>Sobre Mim</SectionTitle>
           <div className="grid md:grid-cols-5 gap-12 items-center">
@@ -240,34 +303,73 @@ export default function PortfolioApp() {
           </div>
         </SectionWrapper>
 
+        {/* --- SEÇÃO PROJETOS (COM A CORREÇÃO) --- */}
         <SectionWrapper id="projects">
           <SectionTitle>Projetos em Destaque</SectionTitle>
           <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
             {(showAllProjects ? projects : projects.slice(0, 2)).map((project, index) => (
-              <motion.div key={index}
-                className="bg-slate-100/50 dark:bg-slate-900/50 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 group transition-all duration-300 hover:!border-sky-500/50 hover:shadow-xl dark:hover:shadow-2xl dark:hover:shadow-sky-900/30 relative"
-                whileHover={{ y: -8 }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}>
+              <motion.div 
+                key={index}
+                // A estrutura agora é flex-col para empilhar imagem e texto
+                className="bg-slate-100/50 dark:bg-slate-900/50 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 group transition-all duration-300 hover:!border-sky-500/50 hover:shadow-xl dark:hover:shadow-2xl dark:hover:shadow-sky-900/30 relative flex flex-col"
+                whileHover={{ y: -8 }} 
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                viewport={{ once: true }} 
+                transition={{ duration: 0.5, delay: index * 0.1 }}>
+                
                 <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:from-white/5"></div>
-                <div className="aspect-[3/2] w-full">
-                  <Image src={project.imageUrl} alt={`Thumbnail do projeto ${project.name}`} width={600} height={400} className="w-full h-56 md:h-72 lg:h-80 object-cover" />
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">{project.name}</h3>
-                    <p className="text-sm mb-4 text-slate-600 dark:text-slate-400">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.map((tech, idx) => (<span key={idx} className="bg-sky-100 dark:bg-sky-900/60 text-sky-600 dark:text-sky-300 text-xs font-semibold px-2 py-1 rounded-full">{tech}</span>))}
-                    </div>
-                    <div className="flex gap-4 mt-4">
-                      {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-800 dark:hover:text-sky-400 flex items-center gap-1 font-semibold text-sm transition-colors">Ver Online <ArrowUpRight size={16} /></a>}
-                      {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-800 dark:hover:text-slate-400 flex items-center gap-1 font-semibold text-sm transition-colors">Código <Github size={16} /></a>}
-                    </div>
+                
+                {/* *** CORREÇÃO PRINCIPAL APLICADA AQUI ***
+                  O container da imagem agora é separado do container de texto.
+                */}
+                
+                {/* 1. Container dedicado APENAS para a imagem, mantendo a proporção. */}
+                <div className="aspect-[3/2] w-full relative">
+                  <Image 
+                    src={project.imageUrl} 
+                    alt={`Thumbnail do projeto ${project.name}`} 
+                    fill // "fill" faz a imagem preencher o container pai (que precisa ser 'relative').
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+
+                {/* 2. O container de texto agora é um irmão do container da imagem, renderizado corretamente abaixo dela. */}
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-semibold mb-2 text-slate-900 dark:text-slate-100">{project.name}</h3>
+                  {/* flex-grow faz a descrição ocupar o espaço disponível, empurrando os links para baixo. */}
+                  <p className="text-sm mb-4 text-slate-600 dark:text-slate-400 flex-grow">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, idx) => (
+                      <span key={idx} className="bg-sky-100 dark:bg-sky-900/60 text-sky-600 dark:text-sky-300 text-xs font-semibold px-2 py-1 rounded-full">{tech}</span>
+                    ))}
+                  </div>
+                  {/* mt-auto empurra esta div para o final do card, e pt-4 + border-t cria um separador visual. */}
+                  <div className="flex gap-4 mt-auto pt-4 border-t border-slate-200 dark:border-slate-800/50">
+                    {project.liveUrl && (
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="z-10 text-sky-600 hover:text-sky-800 dark:hover:text-sky-400 flex items-center gap-1 font-semibold text-sm transition-colors">
+                        Ver Online <ArrowUpRight size={16} />
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="z-10 text-slate-600 hover:text-slate-800 dark:hover:text-slate-400 flex items-center gap-1 font-semibold text-sm transition-colors">
+                        Código <Github size={16} />
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
-          <div className="flex justify-center mt-12"><button onClick={() => setShowAllProjects(!showAllProjects)} className="bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-6 rounded-md transition-colors duration-300">{showAllProjects ? "Ver Menos" : "Ver Mais"}</button></div>
+          <div className="flex justify-center mt-12">
+            <button onClick={() => setShowAllProjects(!showAllProjects)} className="bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-6 rounded-md transition-colors duration-300">
+              {showAllProjects ? "Ver Menos" : "Ver Mais"}
+            </button>
+          </div>
         </SectionWrapper>
 
+        {/* --- SEÇÃO SKILLS --- */}
         <SectionWrapper id="skills">
             <SectionTitle>Skills & Tecnologias</SectionTitle>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -291,13 +393,16 @@ export default function PortfolioApp() {
             </div>
         </SectionWrapper>
 
+        {/* --- SEÇÃO JORNADA (EXPERIÊNCIA) --- */}
         <SectionWrapper id="experience">
             <SectionTitle>Minha Jornada</SectionTitle>
             <div className="relative" ref={timelineRef}>
+              {/* A linha vertical animada da timeline */}
               <motion.div style={{ height: timelineHeight }} className="absolute left-[11px] top-0 w-1 bg-slate-200 dark:bg-slate-800 rounded-full" />
               <div className="relative pl-8 md:pl-12">
                 {(showAllExperience ? experiences : experiences.slice(0, 2)).map((exp, index) => (
                   <motion.div key={index} className="mb-12 relative" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.5, delay: index * 0.1 }}>
+                    {/* O ícone na linha do tempo */}
                     <div className="absolute -left-[30px] md:-left-[46px] top-1.5 h-6 w-6 rounded-full bg-slate-50 dark:bg-slate-950 border-2 border-sky-500 flex items-center justify-center">
                       {exp.type === 'work' ? <Briefcase size={14} className="text-sky-500" /> : exp.type === 'education' ? <GraduationCap size={14} className="text-sky-500" /> : <HeartHandshake size={14} className="text-sky-500" />}
                     </div>
@@ -312,6 +417,7 @@ export default function PortfolioApp() {
             <div className="flex justify-center mt-8"><button onClick={() => setShowAllExperience(!showAllExperience)} className="bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-6 rounded-md transition-colors duration-300">{showAllExperience ? "Ver Menos" : "Ver Mais"}</button></div>
         </SectionWrapper>
 
+        {/* --- SEÇÃO CERTIFICAÇÕES --- */}
         <SectionWrapper id="certifications">
           <SectionTitle>Certificações</SectionTitle>
           <div className="grid md:grid-cols-2 gap-8">
@@ -332,11 +438,14 @@ export default function PortfolioApp() {
             <div className="flex justify-center mt-12"><button onClick={() => setShowAllCertifications(!showAllCertifications)} className="bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-6 rounded-md transition-colors duration-300">{showAllCertifications ? "Ver Menos" : "Ver Mais"}</button></div>
         </SectionWrapper>
 
+        {/* --- SEÇÃO CONTATO --- */}
         <SectionWrapper id="contact">
           <SectionTitle>Vamos Conversar</SectionTitle>
           <div className="max-w-2xl mx-auto text-center">
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">Estou sempre aberto a novas oportunidades, colaborações ou apenas um bom bate-papo sobre tecnologia. Sinta-se à vontade para entrar em contato!</p>
+            {/* Formulário de Contato */}
             <form onSubmit={handleSubmit} className="space-y-4 text-left">
+                {/* Campo "Honeypot" para enganar bots de spam. Fica escondido para usuários reais. */}
                 <input type="text" name="honeypot" className="hidden" tabIndex={-1} autoComplete="off"/>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
@@ -354,7 +463,9 @@ export default function PortfolioApp() {
                 </div>
                 <button type="submit" disabled={isSubmitting} className="w-full bg-sky-600 text-white font-bold py-3 px-6 rounded-md hover:bg-sky-500 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed">{isSubmitting ? "Enviando..." : "Enviar Mensagem"}</button>
             </form>
+            {/* Exibe a mensagem de status (ex: "Enviado com sucesso!") */}
             {statusMessage && <p className="mt-4 text-center text-sm text-sky-600 dark:text-sky-400">{statusMessage}</p>}
+            {/* Links de redes sociais alternativos */}
             <div className="mt-12">
               <p className="text-slate-800 dark:text-slate-100">Ou me encontre por aqui:</p>
               <div className="flex justify-center gap-6 mt-4">
@@ -368,6 +479,7 @@ export default function PortfolioApp() {
         </SectionWrapper>
       </main>
 
+      {/* --- RODAPÉ --- */}
       <footer className="bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-6 text-center text-sm text-slate-500 dark:text-slate-500">
           <p>&copy; {new Date().getFullYear()} {personalInfo.name}. Todos os direitos reservados.</p>

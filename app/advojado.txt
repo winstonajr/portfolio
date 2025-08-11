@@ -1,0 +1,364 @@
+"use client"
+import { useState, FC, ReactNode } from 'react';
+import Head from 'next/head';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaGavel, FaBalanceScale, FaUsers, FaBriefcase, FaWhatsapp, FaLinkedin, FaChevronDown } from 'react-icons/fa';
+import { MdLocationOn, MdEmail, MdPhone } from 'react-icons/md';
+
+// --- Tipos (Opcional, mas boa prática com TypeScript) ---
+interface PracticeArea {
+  icon: ReactNode;
+  title: string;
+  description: string;
+}
+
+interface Testimonial {
+  quote: string;
+  name: string;
+  caseType: string;
+}
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+// --- Dados de Exemplo (Facilita a manutenção) ---
+const practiceAreas: PracticeArea[] = [
+  {
+    icon: <FaBalanceScale className="w-12 h-12 text-amber-500" />,
+    title: 'Direito Civil',
+    description: 'Assessoria completa em contratos, obrigações, responsabilidade civil, e questões imobiliárias.'
+  },
+  {
+    icon: <FaUsers className="w-12 h-12 text-amber-500" />,
+    title: 'Direito de Família',
+    description: 'Atuação em divórcios, partilha de bens, pensão alimentícia, guarda de menores e inventários.'
+  },
+  {
+    icon: <FaBriefcase className="w-12 h-12 text-amber-500" />,
+    title: 'Direito Empresarial',
+    description: 'Suporte jurídico para empresas, desde a constituição até a elaboração de contratos e reestruturação societária.'
+  },
+];
+
+const testimonialsData: Testimonial[] = [
+  {
+    quote: 'Profissionalismo e competência exemplares. Consegui resolver uma questão complexa de forma ágil e justa. Recomendo totalmente.',
+    name: 'Carlos Mendes',
+    caseType: 'Cliente de Caso Empresarial'
+  },
+  {
+    quote: 'Recebi um atendimento humano e atencioso durante todo o meu processo de divórcio. Fizeram toda a diferença em um momento delicado.',
+    name: 'Juliana Almeida',
+    caseType: 'Cliente de Direito de Família'
+  },
+  {
+    quote: 'Transparência e clareza em todas as etapas. Senti segurança e confiança desde a primeira consulta. Excelente trabalho!',
+    name: 'Roberto Viana',
+    caseType: 'Cliente de Caso Cível'
+  }
+];
+
+const faqData: FAQItem[] = [
+  {
+    question: 'Como funciona a primeira consulta?',
+    answer: 'A primeira consulta é o momento em que analisamos seu caso em detalhes, esclarecemos suas dúvidas e traçamos as possíveis estratégias jurídicas. É um passo fundamental para entendermos como podemos ajudá-lo.'
+  },
+  {
+    question: 'Quais são os honorários advocatícios?',
+    answer: 'Os honorários são definidos com base na complexidade do caso e nos serviços a serem prestados, sempre em conformidade com a tabela da OAB. Oferecemos transparência total e diferentes modelos de contratação.'
+  },
+  {
+    question: 'Quanto tempo meu processo pode levar?',
+    answer: 'A duração de um processo judicial pode variar significativamente dependendo da natureza da causa, da vara em que tramita e de outros fatores. Nosso compromisso é atuar com a máxima diligência para buscar a resolução mais rápida possível.'
+  },
+  {
+    question: 'É possível resolver meu problema sem um processo judicial?',
+    answer: 'Sim! Sempre que possível, buscamos soluções através de métodos alternativos de resolução de conflitos, como mediação e conciliação, que podem ser mais rápidos e econômicos para nossos clientes.'
+  }
+];
+
+// --- Componentes da Página ---
+
+const Header: FC = () => {
+  return (
+    <header className="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="text-2xl font-bold text-gray-800">
+          <FaGavel className="inline-block mr-2 text-blue-900" />
+          Seu Nome Advocacia
+        </div>
+        <nav className="hidden md:flex space-x-8">
+          <a href="#atuacao" className="text-gray-600 hover:text-blue-900 transition-colors">Áreas de Atuação</a>
+          <a href="#sobre" className="text-gray-600 hover:text-blue-900 transition-colors">Sobre Nós</a>
+          <a href="#contato" className="text-gray-600 hover:text-blue-900 transition-colors">Contato</a>
+        </nav>
+        <a 
+          href="https://wa.me/5500000000000" // Coloque seu número de WhatsApp aqui
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-full transition-transform transform hover:scale-105"
+        >
+          Consulta Jurídica
+        </a>
+      </div>
+    </header>
+  );
+};
+
+const Hero: FC = () => {
+  return (
+    <section className="bg-blue-900 text-white">
+      <div className="container mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+            Assessoria Jurídica de Confiança para Proteger Seus Direitos.
+          </h1>
+          <p className="mt-4 text-lg text-blue-200">
+            Compromisso, ética e excelência na defesa dos seus interesses.
+          </p>
+          <motion.a 
+            href="#contato"
+            className="mt-8 inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105 shadow-lg"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Agende uma Consulta
+          </motion.a>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="hidden md:flex justify-center"
+        >
+          <img src="/hero-advogado.jpg" alt="Balança da justiça" className="rounded-lg shadow-2xl w-full max-w-md" />
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const Section: FC<{ id: string; title: string; subtitle: string; children: ReactNode; className?: string; bgClassName?: string }> = ({ id, title, subtitle, children, className = 'py-20', bgClassName = 'bg-white' }) => (
+    <div className={bgClassName}>
+        <motion.section
+            id={id}
+            className={`container mx-auto px-6 ${className}`}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+        >
+            <h2 className="text-3xl font-bold text-center text-gray-800">{title}</h2>
+            <p className="text-center text-gray-600 mt-2 mb-12 max-w-2xl mx-auto">{subtitle}</p>
+            {children}
+        </motion.section>
+    </div>
+);
+
+const PracticeAreas: FC = () => {
+  return (
+    <Section
+      id="atuacao"
+      title="Áreas de Atuação"
+      subtitle="Especialistas em diversas áreas do direito para oferecer a solução jurídica mais adequada e eficiente para você ou sua empresa."
+      bgClassName="bg-gray-50"
+    >
+      <div className="grid md:grid-cols-3 gap-8">
+        {practiceAreas.map((area, index) => (
+          <motion.div 
+            key={index}
+            className="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-t-4 border-amber-500"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <div className="flex justify-center mb-4">{area.icon}</div>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">{area.title}</h3>
+            <p className="text-gray-600">{area.description}</p>
+          </motion.div>
+        ))}
+      </div>
+    </Section>
+  );
+};
+
+const About: FC = () => {
+  return (
+    <Section id="sobre" title="Compromisso e Experiência" subtitle="Conheça quem está por trás da defesa dos seus direitos.">
+       <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+        <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+        >
+            <h3 className="text-2xl font-bold text-blue-900 mb-4">Dr(a). Seu Nome Sobrenome</h3>
+            <p className="text-gray-600 mb-4">
+                Com sólida experiência no campo jurídico, nossa missão é oferecer uma advocacia moderna, estratégica e focada em resultados. Pautamos nossa atuação na ética, transparência e no relacionamento próximo com nossos clientes.
+            </p>
+            <p className="text-gray-600">
+                Cada caso é tratado com a máxima dedicação e empenho, buscando sempre a solução mais eficaz para proteger seus interesses e garantir seus direitos.
+            </p>
+            <p className="font-bold text-gray-700 mt-4">OAB/UF 123.456</p>
+        </motion.div>
+        <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="flex justify-center"
+        >
+            <img src="/advogado-perfil.jpg" alt="Foto do Advogado(a)" className="rounded-lg shadow-xl w-full max-w-sm" />
+        </motion.div>
+       </div>
+    </Section>
+  );
+};
+
+const Testimonials: FC = () => {
+  return (
+    <Section id="depoimentos" title="O Que Nossos Clientes Dizem" subtitle="A confiança e o sucesso de nossos clientes são nosso maior ativo." bgClassName="bg-gray-50">
+        <div className="grid lg:grid-cols-3 gap-8">
+            {testimonialsData.map((testimonial, index) => (
+                <motion.div 
+                    key={index}
+                    className="bg-white p-6 rounded-lg shadow-md border-l-4 border-amber-500"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                    <p className="text-gray-600 italic">"{testimonial.quote}"</p>
+                    <div className="mt-4 text-right">
+                        <p className="font-bold text-gray-800">{testimonial.name}</p>
+                        <p className="text-sm text-blue-800">{testimonial.caseType}</p>
+                    </div>
+                </motion.div>
+            ))}
+        </div>
+    </Section>
+  );
+};
+
+const FAQ: FC = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  return (
+    <Section id="faq" title="Perguntas Frequentes" subtitle="Esclareça suas principais dúvidas sobre nossos serviços jurídicos.">
+        <div className="max-w-3xl mx-auto">
+            {faqData.map((faq, index) => (
+                <div key={index} className="border-b border-gray-200 py-4">
+                    <button
+                        onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                        className="w-full flex justify-between items-center text-left text-lg font-semibold text-gray-800"
+                    >
+                        <span>{faq.question}</span>
+                        <motion.div animate={{ rotate: openIndex === index ? 180 : 0 }} transition={{ duration: 0.3 }}>
+                            <FaChevronDown className="text-amber-500" />
+                        </motion.div>
+                    </button>
+                    <AnimatePresence>
+                        {openIndex === index && (
+                            <motion.div
+                                initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                                animate={{ opacity: 1, height: 'auto', marginTop: '16px' }}
+                                exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
+                            >
+                                <p className="text-gray-600">{faq.answer}</p>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </div>
+            ))}
+        </div>
+    </Section>
+  );
+}
+
+const Contact: FC = () => {
+    return (
+        <Section id="contato" title="Agende Sua Consulta" subtitle="Dê o primeiro passo para a solução do seu problema. Entre em contato conosco." bgClassName="bg-gray-50">
+            <div className="max-w-4xl mx-auto bg-white p-10 rounded-lg shadow-xl grid md:grid-cols-2 gap-12 items-center">
+                <motion.div 
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                >
+                    <h3 className="text-2xl font-bold text-blue-900 mb-6">Fale Conosco</h3>
+                    <div className="space-y-4 text-gray-700">
+                        <p className="flex items-start"><MdLocationOn className="w-6 h-6 mr-3 text-amber-500 flex-shrink-0 mt-1"/> Rua Fictícia, 123, Sala 45 <br/> Centro, Sua Cidade - UF</p>
+                        <p className="flex items-center"><MdPhone className="w-6 h-6 mr-3 text-amber-500"/> (99) 99999-9999</p>
+                        <p className="flex items-center"><MdEmail className="w-6 h-6 mr-3 text-amber-500"/> contato@seuadvogado.com.br</p>
+                    </div>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                >
+                     <a 
+                        href="https://wa.me/5500000000000" // Coloque seu número de WhatsApp aqui
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full text-center block bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-transform transform hover:scale-105 shadow-lg"
+                    >
+                       <FaWhatsapp className="inline-block mr-3 mb-1" size={24} /> Enviar Mensagem
+                    </a>
+                    <p className="text-center text-sm text-gray-500 mt-4">Clique no botão para iniciar uma conversa via WhatsApp. Atendimento rápido e confidencial.</p>
+                </motion.div>
+            </div>
+        </Section>
+    )
+}
+
+const Footer: FC = () => {
+    return (
+        <footer className="bg-blue-900 text-blue-200">
+            <div className="container mx-auto px-6 py-6 text-center md:flex justify-between items-center">
+                <p className="text-sm">&copy; {new Date().getFullYear()} Seu Nome Advocacia | OAB/UF 123.456 | Todos os direitos reservados.</p>
+                <div className="flex justify-center space-x-4 mt-4 md:mt-0">
+                    <a href="#" aria-label="LinkedIn" className="hover:text-white transition-colors"><FaLinkedin size={24} /></a>
+                    <a href="#" aria-label="WhatsApp" className="hover:text-white transition-colors"><FaWhatsapp size={24} /></a>
+                </div>
+            </div>
+        </footer>
+    );
+};
+
+// --- Página Principal ---
+const AdvogadoLandingPage: FC = () => {
+  return (
+    <>
+      <Head>
+        <title>Seu Nome Advocacia - Assessoria Jurídica Especializada</title>
+        <meta name="description" content="Escritório de advocacia especializado em direito civil, de família e empresarial. Defendemos seus direitos com ética e competência." />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <div className="bg-white font-sans antialiased">
+        <Header />
+        <main>
+          <Hero />
+          <PracticeAreas />
+          <About />
+          <Testimonials />
+          <FAQ />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </>
+  );
+};
+
+export default AdvogadoLandingPage;
