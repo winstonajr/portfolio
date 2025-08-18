@@ -1,26 +1,102 @@
 [
   {
-    "name": "Site da Igreja IADEVIB",
-    "description": "Website institucional da Igreja Assembleia de Deus Vila Brasil (IADEVIB), com design moderno, agenda de eventos, localização de suas congregações, notifições push via onesignal e painel administrativo para gerenciamento de conteúdo.",
-    "technologies": ["Next.js", "React.js", "TypeScript", "Tailwindcss", "Supabase", "OneSignal", "Vercel","Git & Github"],
+    "name": "Dr. Vinícius Fonseca - Veterinário Domiciliar",
+    "description": "Plataforma digital completa para veterinário domiciliar, com foco em captação de clientes via SEO Local avançado. O projeto entrega total autonomia ao cliente através de um painel de controle (CMS com Sanity.io) para gerenciamento de conteúdo, garantindo uma presença online sempre atualizada e profissional.",
+    "technologies": [
+      "Next.js",
+      "React.js",
+      "TypeScript",
+      "Tailwindcss",
+      "Sanity.io",
+      "Framer Motion",
+      "Vercel",
+      "Git & GitHub"
+    ],
+    "liveUrl": "https://www.drviniciusfonseca.vet.br",
+    "githubUrl": "https://github.com/winstonajr/dr-vinicius-fonseca-vet",
+    "imageUrl": "/project-drvinicius.png"
+  },
+  {
+    "name": "FinanTrack - Aplicação Web",
+    "description": "Interface web completa para o FinanTrack, construída com Next.js para máxima performance e UI reativa. O projeto inclui um fluxo de autenticação seguro, dashboard interativo para visualização e gerenciamento de finanças (CRUD completo), e um design profissional e responsivo com tema escuro. Deploy na Vercel.",
+    "technologies": [
+      "Next.js",
+      "React.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Axios",
+      "React Hot Toast",
+      "Vercel",
+      "Git & GitHub"
+    ],
+    "liveUrl": "https://finantrack-alpha.vercel.app",
+    "githubUrl": "https://github.com/winstonajr/finantrack-frontend",
+    "imageUrl": "/project-finantrack-frontend.png"
+  },
+  {
+    "name": "FinanTrack - API",
+    "description": "API RESTful robusta para o aplicativo de controle financeiro FinanTrack. Implementa autenticação segura de ponta a ponta com JWT e criptografia de senhas, além de um sistema CRUD completo para gerenciamento de transações. Construída com foco em boas práticas e deploy automatizado no Render.",
+    "technologies": [
+      "Node.js",
+      "Express.js",
+      "Prisma",
+      "PostgreSQL",
+      "JWT",
+      "Bcrypt",
+      "Render",
+      "Git & GitHub"
+    ],
+    "liveUrl": "",
+    "githubUrl": "https://github.com/winstonajr/finantrack-backend",
+    "imageUrl": "/project-finantrack-backend.png"
+  },
+  {
+    "name": "Portal Institucional - Igreja IADEVIB",
+    "description": "Plataforma digital para comunidade religiosa, projetada para centralizar a comunicação. Inclui agenda de eventos, mapa interativo de congregações e um painel administrativo (CMS com Supabase) para gestão de conteúdo. A integração com OneSignal permite o envio de notificações push para manter os membros engajados.",
+    "technologies": [
+      "Next.js",
+      "React.js",
+      "TypeScript",
+      "Tailwindcss",
+      "Supabase",
+      "OneSignal",
+      "Vercel",
+      "Git & Github"
+    ],
     "liveUrl": "https://www.iadevib.com.br",
     "githubUrl": "",
     "imageUrl": "/project-iadevib.png"
   },
   {
-    "name": "Convite de Casamento - Melk & Sabrina",
-    "description": "Convite de casamento digital interativo feito com Vue.js, oferecendo um design elegante e responsivo. Conta com formulário de confirmação (RSVP) via Google Forms, QR Code para presentes via Pix e modais personalizados para navegação fluida.",
-    "technologies": ["Vue.js", "Vite", "TypeScript", "Tailwindcss", "Google Forms", "Netlify","Git & GitHub"],
-    "liveUrl": "https://convite-melkesabrina-demo.netlify.app/",
-    "githubUrl": "",
-    "imageUrl": "/project-convite-melkesabrina.png"
-  },
-  {
-    "name": "Convite de Casamento - Silmayra & Lucas",
-    "description": "Site de convite de casamento criado com Next.js e Tailwind CSS, com foco em performance e experiência do usuário. Possui RSVP integrado via Google Forms, sessão de presentes via Pix com QR Code, frases personalizadas e layout moderno.",
-    "technologies": ["Next.js", "React.js", "TypeScript", "Tailwindcss", "Google Forms", "Netlify", "Git & GitHub"],
+    "name": "Site de Casamento Moderno - Silmayra & Lucas",
+    "description": "Website de casamento de alta performance desenvolvido em Next.js, focado em uma experiência de usuário premium. A plataforma inclui confirmação de presença (RSVP) com Google Forms, galeria de presentes via QR Code Pix e um design elegante e totalmente responsivo para encantar os convidados.",
+    "technologies": [
+      "Next.js",
+      "React.js",
+      "TypeScript",
+      "Tailwindcss",
+      "Google Forms",
+      "Netlify",
+      "Git & GitHub"
+    ],
     "liveUrl": "https://convite-silelucas-demo.netlify.app",
     "githubUrl": "",
     "imageUrl": "/project-convite-silelucas.png"
+  },
+  {
+    "name": "Convite de Casamento Interativo - Melk & Sabrina",
+    "description": "Experiência digital completa para convidados de casamento, construída com Vue.js para máxima interatividade. O projeto centraliza informações e simplifica a logística com RSVP via Google Forms, lista de presentes com QR Code Pix e uma navegação elegante em formato de single-page application.",
+    "technologies": [
+      "Vue.js",
+      "Vite",
+      "TypeScript",
+      "Tailwindcss",
+      "Google Forms",
+      "Netlify",
+      "Git & GitHub"
+    ],
+    "liveUrl": "https://convite-melkesabrina-demo.netlify.app/",
+    "githubUrl": "",
+    "imageUrl": "/project-convite-melkesabrina.png"
   }
 ]
