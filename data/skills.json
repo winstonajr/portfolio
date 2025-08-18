@@ -1,0 +1,46 @@
+{
+  "categories": [
+    {
+      "title": "Linguagens",
+      "icon": "Code",
+      "items": [
+        { "name": "HTML5", "icon": "SiHtml5" },
+        { "name": "CSS3", "icon": "SiCss3" },
+        { "name": "JavaScript", "icon": "SiJavascript" },
+        { "name": "TypeScript", "icon": "SiTypescript" }
+      ]
+    },
+    {
+      "title": "Frameworks & Bibliotecas",
+      "icon": "AppWindow",
+      "items": [
+        { "name": "React", "icon": "SiReact" },
+        { "name": "Next.js", "icon": "SiNextdotjs" },
+        { "name": "Node.js", "icon": "SiNodedotjs" },
+        { "name": "Express", "icon": "SiExpress" },
+        { "name": "Tailwind CSS", "icon": "SiTailwindcss" },
+        { "name": "Axios", "icon": "SiAxios" },
+        { "name": "Vue.js", "icon": "SiVuedotjs" },
+        { "name": "Framer Motion", "icon": "SiFramer" }
+      ]
+    },
+    {
+      "title": "Banco de Dados & Ferramentas",
+      "icon": "Database",
+      "items": [
+        { "name": "PostgreSQL", "icon": "SiPostgresql" },
+        { "name": "Prisma", "icon": "SiPrisma" },
+        { "name": "MongoDB", "icon": "SiMongodb" },
+        { "name": "MySQL", "icon": "SiMysql" },
+        { "name": "Sanity", "icon": "SiSanity" },
+        { "name": "Vercel", "icon": "SiVercel" },
+        { "name": "Render", "icon": "SiRender" },
+        { "name": "Supabase", "icon": "SiSupabase" },
+        { "name": "Git", "icon": "SiGit" },
+        { "name": "GitHub", "icon": "SiGithub" },
+        { "name": "JWT", "icon": "SiJsonwebtokens" },
+        { "name": "Postman", "icon": "SiPostman" }
+      ]
+    }
+  ]
+}

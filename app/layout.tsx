@@ -1,75 +1,52 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { Inter } from "next/font/google";
+import "./globals.css"; // Seu arquivo de CSS global (ex: com as diretivas do Tailwind)
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// Importando seus dados para usar nos metadados
+import personalInfo from "@/data/personalInfo.json";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// Otimização de fontes do Google Fonts, uma prática padrão no Next.js
+const inter = Inter({ subsets: ["latin"] });
 
+// --- METADADOS (SEO) ---
+// Isso controla o que aparece na aba do navegador e quando você compartilha o link
 export const metadata: Metadata = {
-  title: "Winston Jr. | Desenvolvedor Full Stack Moderno",
-  description:
-    "Portfólio de Winston Almeida Jr., desenvolvedor web full stack especializado em soluções digitais modernas, interfaces elegantes e performance. Conheça projetos, habilidades e formações.",
-  keywords: [
-    "Winston Jr.",
-    "Winston Almeida Jr.",
-    "Desenvolvedor Web",
-    "Full Stack",
-    "Desenvolvedor Front-end",
-    "Desenvolvedor Back-end",
-    "React",
-    "Next.js",
-    "Tailwind CSS",
-    "TypeScript",
-    "Portfólio",
-    "Programador",
-    "UI/UX",
-    "Sites profissionais",
-    "Landing pages",
-    "Dev moderno",
-  ],
-  authors: [{ name: "Winston Almeida Jr.", url: "https://seu-dominio.com" }],
-  creator: "Winston Almeida Jr.",
-  publisher: "Winston Almeida Jr.",
-  generator: "Next.js",
-  metadataBase: new URL("https://www.winstonajr.com.br"),
-
+  title: `${personalInfo.name} | ${personalInfo.title}`,
+  description: personalInfo.tagline,
+  // Adicione outras tags meta que desejar aqui, como open graph para redes sociais
   openGraph: {
-    title: "Winston Jr. | Desenvolvedor Full Stack Moderno",
-    description:
-      "Conheça o portfólio de Winston Almeida Jr., com projetos modernos, foco em performance, UI/UX e tecnologias como React, Next.js e Tailwind.",
-    url: "https://www.winstonajr.com.br",
-    siteName: "Winston Jr. | Portfólio",
-    locale: "pt_BR",
-    type: "website",
+    title: `${personalInfo.name} | ${personalInfo.title}`,
+    description: personalInfo.tagline,
+    images: [
+      {
+        url: "/og-image.png", // Sugestão: Crie uma imagem de preview para seu site
+        width: 1200,
+        height: 630,
+        alt: `Portfólio de ${personalInfo.name}`,
+      },
+    ],
   },
-
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-icon.png",
-  },
-
-  themeColor: "#0f172a",
 };
 
-
+// --- O COMPONENTE LAYOUT ---
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="pt-br">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    // A tag lang é importante para acessibilidade e SEO
+    <html lang="pt-BR" className="scroll-smooth">
+      {/*
+        A classe `inter.className` aplica a fonte otimizada em todo o corpo do site.
+        Como seu projeto usa tema escuro (dark mode), é uma boa prática adicionar `suppressHydrationWarning`.
+      */}
+      <body className={inter.className} suppressHydrationWarning={true}>
+        {/*
+          É aqui que a mágica acontece! 
+          O `children` representa o seu `app/page.tsx`.
+          O Next.js vai renderizar o conteúdo da sua página exatamente neste lugar.
+        */}
         {children}
       </body>
     </html>
