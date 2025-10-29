@@ -2,9 +2,9 @@
 import { useGoogleFormSubmit } from "@/hooks/useGoogleFormSubmit";
 import Section from "../layout/Section";
 import SectionTitle from "../ui/SectionTitle";
-import { Github, Linkedin, Instagram, Mail } from "lucide-react";
+import { Github, Linkedin, Instagram, Mail, FileDown } from "lucide-react";
 import personalInfo from "@/data/personalInfo.json";
-import { FiDownload } from "react-icons/fi";
+import { IconsRow } from "../iconsRow";
 
 export default function Contact() {
   const { isSubmitting, statusMessage, submitForm } = useGoogleFormSubmit();
@@ -105,43 +105,25 @@ export default function Contact() {
             Ou me encontre por aqui:
           </p>
           <div className="flex justify-center gap-6 mt-4">
-            <a
-              href={personalInfo.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-500 dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
-            >
+            <IconsRow href={personalInfo.github}>
               <Github size={28} />
-            </a>
-            <a
-              href={personalInfo.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-500 dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
-            >
+            </IconsRow>
+
+            <IconsRow href={personalInfo.linkedin}>
               <Linkedin size={28} />
-            </a>
-            <a
-              href={personalInfo.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-500 dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
-            >
+            </IconsRow>
+
+            <IconsRow href={personalInfo.instagram}>
               <Instagram size={28} />
-            </a>
-            <a
-              href={`mailto:${personalInfo.email}`}
-              className="text-slate-500 dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
-            >
+            </IconsRow>
+
+            <IconsRow href={`mailto:${personalInfo.email}`}>
               <Mail size={28} />
-            </a>
-            <a
-              href={personalInfo.curriculumLink}
-              download={personalInfo.curriculumLink}
-              className="text-slate-500 dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
-            >
-              <FiDownload size={28} />
-            </a>
+            </IconsRow>
+
+            <IconsRow href={personalInfo.curriculumLink}>
+              <FileDown size={28} />
+            </IconsRow>
           </div>
         </div>
       </div>

@@ -1,8 +1,8 @@
 "use client";
 import { PersonalInfo } from "@/types";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Instagram, Mail } from "lucide-react";
-import { FiDownload } from "react-icons/fi";
+import { Github, Linkedin, Instagram, Mail, FileDown } from "lucide-react";
+import { IconsRowHero } from "../iconsRowHero/iconsRowHero";
 
 const heroVariants = {
   hidden: { opacity: 0 },
@@ -45,47 +45,21 @@ export default function Hero({ personalInfo }: { personalInfo: PersonalInfo }) {
           {personalInfo.tagline}
         </motion.p>
         <motion.div variants={heroItemVariants} className="flex gap-4 mt-6">
-          <a
-            href={personalInfo.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Github"
-            className="p-3 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-sky-500 hover:text-white dark:hover:text-white transition-all duration-300"
-          >
+          <IconsRowHero href={personalInfo.github}>
             <Github size={24} />
-          </a>
-          <a
-            href={personalInfo.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Linkedin"
-            className="p-3 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-sky-500 hover:text-white dark:hover:text-white transition-all duration-300"
-          >
+          </IconsRowHero>
+          <IconsRowHero href={personalInfo.linkedin}>
             <Linkedin size={24} />
-          </a>
-          <a
-            href={personalInfo.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="p-3 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-sky-500 hover:text-white dark:hover:text-white transition-all duration-300"
-          >
+          </IconsRowHero>
+          <IconsRowHero href={personalInfo.instagram}>
             <Instagram size={24} />
-          </a>
-          <a
-            href={`mailto:${personalInfo.email}`}
-            aria-label="Email"
-            className="p-3 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-sky-500 hover:text-white dark:hover:text-white transition-all duration-300"
-          >
+          </IconsRowHero>
+          <IconsRowHero href={`mailto:${personalInfo.email}`}>
             <Mail size={24} />
-          </a>
-          <a
-            href={personalInfo.curriculumLink}
-            download={personalInfo.curriculumLink}
-            className="p-3 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-sky-500 hover:text-white dark:hover:text-white transition-all duration-300"
-          >
-            <FiDownload size={24} />
-          </a>
+          </IconsRowHero>
+          <IconsRowHero href={personalInfo.curriculumLink}>
+            <FileDown size={24} />
+          </IconsRowHero>
         </motion.div>
       </motion.div>
     </section>

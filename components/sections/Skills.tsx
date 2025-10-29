@@ -66,7 +66,7 @@ export default function Skills({ skills }: { skills: SkillsData }) {
   return (
     <Section id="skills">
       <SectionTitle>Skills & Tecnologias</SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {skills.categories.map((category: SkillCategory) => (
           <div key={category.title}>
             <h3 className="text-xl font-semibold mb-6 flex items-center gap-3 text-slate-800 dark:text-slate-200">
