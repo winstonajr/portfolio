@@ -1,9 +1,8 @@
 {
   "name": "Winston Jr.",
-  "title": "Desenvolvedor Full-Stack | Next.js, Node.js & TypeScript",
-  "tagline": "Transformando ideias em aplicações web modernas e de alta performance.",
-  "about": "Desenvolvedor Full-Stack apaixonado por construir soluções web ponta a ponta. Minha expertise se concentra em criar interfaces de usuário interativas com Next.js, TypeScript e Tailwind CSS, e desenvolver APIs robustas com Node.js e Express.js. Tenho experiência prática com bancos de dados PostgreSQL (via Supabase) e sigo um fluxo de trabalho completo, desde o versionamento no GitHub até o deploy contínuo na Vercel. Estou sempre explorando novas tecnologias, como Go, e busco ativamente uma oportunidade para aplicar meu conhecimento, colaborar com equipes inovadoras e construir produtos digitais de impacto.",
-  "curriculumLink": "/Winston-Almeida-Curriculo.pdf",
+  "title": "Desenvolvedor Front-End | React ,Next.js & TypeScript",
+  "tagline": "Desenvolvedor Front-end especialista em construir interfaces ricas, performáticas e que entregam uma ótima experiência ao usuário.Focado no ecossistema JavaScript moderno, com proficiência em Next.js, TypeScript e Tailwind CSS.Possuo uma base sólida em Back-end com Node.js, Prisma e Express.js, o que me permite colaborar ativamente na criação de soluções de ponta a ponta. Busco aplicar as melhores práticas e metodologias ágeis para entregar aplicações escaláveis e eficientes.",
+  "curriculumLink": "/winston-almeida-curriculo.pdf",
   "email": "winston.almeidamjr@gmail.com",
   "linkedin": "https://linkedin.com/in/winstonajr",
   "github": "https://github.com/winstonajr",
