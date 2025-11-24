@@ -35,7 +35,6 @@ export interface Certification {
   title: string;
   issuer: string;
   period: string;
-  description: string;
 }
 
 // Para os dados de skills em skills.json

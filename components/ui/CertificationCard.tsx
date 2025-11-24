@@ -28,9 +28,6 @@ export default function CertificationCard({
           </p>
         </div>
       </div>
-      <p className="mt-2 text-slate-600 dark:text-slate-400 text-sm leading-relaxed pl-10">
-        {certification.description}
-      </p>
     </motion.div>
   );
 }
