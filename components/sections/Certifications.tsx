@@ -17,7 +17,7 @@ export default function Certifications({
 
   return (
     <Section id="certifications">
-      <SectionTitle>Certificações</SectionTitle>
+      <SectionTitle>Cursos Livres</SectionTitle>
       <div className="grid md:grid-cols-2 gap-8">
         {displayedCerts.map((cert, idx) => (
           <CertificationCard key={idx} certification={cert} index={idx} />
