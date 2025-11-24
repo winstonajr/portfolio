@@ -1,50 +1,26 @@
 [
   {
-    "title": "Curso Web Moderno",
-    "issuer": "Udemy",
+    "title": "HTML e CSS para Iniciantes",
+    "issuer": "Origamid",
     "period": "2025",
-    "description": "Curso completo que abrange JavaScript, HTML, CSS, React, Vue, Node.js e outras tecnologias web."
+    "description": ""
   },
   {
-    "title": "Ri Happy - Front-end do Zero",
-    "issuer": "DIO",
+    "title": "UI Design para Iniciantes",
+    "issuer": "Origamid",
     "period": "2025",
-    "description": "Curso introdutório de front-end com foco em HTML, CSS, JavaScript e Git."
+    "description": ""
   },
   {
-    "title": "Imersão Front-End 2ª Edição",
+    "title": "Formação UX Design",
     "issuer": "Alura",
     "period": "2025",
-    "description": "Curso imersivo em front-end, JavaScript, CSS, HTML e versionamento de código."
+    "description": ""
   },
   {
-    "title": "O básico de Git e GitHub",
+    "title": "Next.js App Router e Testes",
     "issuer": "Rocketseat",
     "period": "2025",
-    "description": "Curso introdutório de controle de versão com Git e GitHub."
-  },
-  {
-    "title": "Discover",
-    "issuer": "Rocketseat",
-    "period": "2025",
-    "description": "Curso sobre desenvolvimento web com JavaScript, HTML, CSS e Git."
-  },
-  {
-    "title": "Computação em Nuvem com Azure",
-    "issuer": "DIO",
-    "period": "2025",
-    "description": "Curso sobre computação em nuvem, Azure e inteligência artificial."
-  },
-  {
-    "title": "Conectar",
-    "issuer": "Rocketseat",
-    "period": "2022",
-    "description": "Curso sobre programação e controle de versão com Git e GitHub."
-  },
-  {
-    "title": "Jornada Full Stack",
-    "issuer": "Hashtag Treinamentos",
-    "period": "2025",
-    "description": "Curso completo de desenvolvimento full stack com JavaScript, MongoDB e controle de versão."
+    "description": ""
   }
 ]
