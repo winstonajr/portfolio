@@ -7,6 +7,13 @@
     "description": "Formação técnica e prática voltada para o desenvolvimento de software e aplicações web. Tenho aprofundado conhecimentos em lógica de programação, banco de dados, front-end, back-end e arquitetura de sistemas, alinhando os estudos ao que aplico em projetos reais."
   },
   {
+    "type": "work",
+    "title": "Desenvolvedor Front-End",
+    "company": "Qa Coders Academy",
+    "period": "Ago. 2025 - Dez. 2025",
+    "description": "Atuei no desenvolvimento de sistemas frontend, criando interfaces reativas e performáticas e realizando a integração com APIs e serviços de backend. Contribui para a qualidade do código dentro de uma arquitetura modular (MVC/Clean Architecture) e colaborei ativamente com equipes de backend, QA e UX/UI para entregar soluções completas e eficientes."
+  },
+  {
     "type": "education",
     "title": "Bacharelado Interdisciplinar em Ciência e Tecnologia",
     "company": "Universidade Federal do Maranhão ― UFMA",
