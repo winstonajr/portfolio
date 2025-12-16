@@ -1,8 +1,12 @@
 {
   "name": "Winston Jr.",
   "title": "Desenvolvedor Front-End | React, Next.js & TypeScript",
-  "tagline": "Transformando ideias em aplicações web modernas e de alta performance.",
-  "about": "Desenvolvedor Front-end especialista em construir interfaces ricas, performáticas e que entregam uma ótima experiência ao usuário. Focado no ecossistema JavaScript moderno, com proficiência em Next.js, TypeScript e Tailwind CSS. Possuo uma base sólida em Back-end com Node.js, Prisma e Express.js, o que me permite colaborar ativamente na criação de soluções de ponta a ponta. Busco aplicar as melhores práticas e metodologias ágeis para entregar aplicações escaláveis e eficientes.",
+  "tagline": "Construindo interfaces ricas, performáticas e escaláveis com visão sistêmica.",
+  "about": [
+    "Desenvolvedor focado na construção de interfaces ricas, performáticas e escaláveis. Meu objetivo é transformar designs e requisitos de negócio em código limpo, garantindo aplicações rápidas, acessíveis e otimizadas para SEO. ",
+    "Meu diferencial técnico, além da atuação no Front-end, é uma base sólida em Backend com Node.js. Essa visão sistêmica me permite criar integrações com APIs de forma eficiente, colaborar tecnicamente com equipes de infraestrutura e garantir que a solução final seja coesa de ponta a ponta. ",
+    "Minha stack principal envolve Next.js, React, TypeScript, Vue.js e Tailwind CSS, suportada por conhecimentos em Backend e Infra como Node.js, Prisma, PostgreSQL e Vercel."
+  ],
   "curriculumLink": "/winston-almeida-curriculo.pdf",
   "email": "winston.almeidamjr@gmail.com",
   "linkedin": "https://linkedin.com/in/winstonajr",

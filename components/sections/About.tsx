@@ -32,9 +32,14 @@ export default function About({
           </div>
         </motion.div>
         <div className="md:col-span-3">
-          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-            {personalInfo.about}
-          </p>
+          {personalInfo.about.map((item, index) => (
+            <p
+              key={index}
+              className="text-lg text-slate-600 dark:text-slate-400 pb-5 leading-relaxed"
+            >
+              {item}
+            </p>
+          ))}
         </div>
       </div>
     </Section>

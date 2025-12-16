@@ -3,7 +3,7 @@ export interface PersonalInfo {
   name: string;
   title: string;
   tagline: string;
-  about: string;
+  about: string[];
   curriculumLink: string;
   email: string;
   github: string;

@@ -1,10 +1,25 @@
 [
   {
+    "name": "Biblioteca Virtual - Conectando Leitores",
+    "description": "Desenvolvimento de uma plataforma completa de biblioteca virtual em ambiente simulado de mercado (QaCoders Academy). Atuando em uma squad multidisciplinar (Product, UX, QA, Backend e DevOps), fui responsável por construir interfaces escaláveis com Next.js, implementando fluxos de leitura, busca e um painel administrativo robusto para gestão de acervo e usuários. Além do desenvolvimento de features, colaborei ativamente com a qualidade do projeto, sugerindo e implementando o Husky para padronização de commits e governança de código.",
+    "technologies": [
+      "Next.js",
+      "React.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Husky",
+      "Docker",
+      "Git & GitHub"
+    ],
+    "liveUrl": "https://oraculo.qacoders.dev.br",
+    "githubUrl": "",
+    "imageUrl": "/project-conectando-leitores.png"
+  },
+  {
     "name": "Dr. Vinícius Fonseca - Veterinário Domiciliar",
     "description": "Plataforma digital completa para veterinário domiciliar, com foco em captação de clientes via SEO Local avançado. O projeto entrega total autonomia ao cliente através de um painel de controle (CMS com Sanity.io) para gerenciamento de conteúdo, garantindo uma presença online sempre atualizada e profissional.",
     "technologies": [
       "Next.js",
-      "React.js",
       "TypeScript",
       "Tailwindcss",
       "Sanity.io",
@@ -21,11 +36,9 @@
     "description": "Interface web completa para o FinanTrack, construída com Next.js para máxima performance e UI reativa. O projeto inclui um fluxo de autenticação seguro, dashboard interativo para visualização e gerenciamento de finanças (CRUD completo), e um design profissional e responsivo com tema escuro. Deploy na Vercel.",
     "technologies": [
       "Next.js",
-      "React.js",
       "TypeScript",
       "Tailwind CSS",
       "Axios",
-      "React Hot Toast",
       "Vercel",
       "Git & GitHub"
     ],
@@ -37,7 +50,6 @@
     "name": "FinanTrack - API",
     "description": "API RESTful robusta para o aplicativo de controle financeiro FinanTrack. Implementa autenticação segura de ponta a ponta com JWT e criptografia de senhas, além de um sistema CRUD completo para gerenciamento de transações. Construída com foco em boas práticas e deploy automatizado no Render.",
     "technologies": [
-      "Node.js",
       "Express.js",
       "Prisma",
       "PostgreSQL",
@@ -55,7 +67,6 @@
     "description": "Plataforma digital para comunidade religiosa, projetada para centralizar a comunicação. Inclui agenda de eventos, mapa interativo de congregações e um painel administrativo (CMS com Supabase) para gestão de conteúdo. A integração com OneSignal permite o envio de notificações push para manter os membros engajados.",
     "technologies": [
       "Next.js",
-      "React.js",
       "TypeScript",
       "Tailwindcss",
       "Supabase",
@@ -72,7 +83,6 @@
     "description": "Website de casamento de alta performance desenvolvido em Next.js, focado em uma experiência de usuário premium. A plataforma inclui confirmação de presença (RSVP) com Google Forms, galeria de presentes via QR Code Pix e um design elegante e totalmente responsivo para encantar os convidados.",
     "technologies": [
       "Next.js",
-      "React.js",
       "TypeScript",
       "Tailwindcss",
       "Google Forms",

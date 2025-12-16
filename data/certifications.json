@@ -1,22 +1,37 @@
 [
   {
+    "title": "React Completo",
+    "issuer": "Origamid",
+    "period": "Dez 2025"
+  },
+  {
+    "title": "JavaScript Completo ES6",
+    "issuer": "Origamid",
+    "period": "Dez 2025"
+  },
+  {
+    "title": "UI Design Avançado",
+    "issuer": "Origamid",
+    "period": "Nov 2025"
+  },
+  {
     "title": "HTML e CSS para Iniciantes",
     "issuer": "Origamid",
-    "period": "2025"
+    "period": "Nov 2025"
   },
   {
     "title": "UI Design para Iniciantes",
     "issuer": "Origamid",
-    "period": "2025"
+    "period": "Nov 2025"
   },
   {
     "title": "Formação UX Design",
     "issuer": "Alura",
-    "period": "2025"
+    "period": "Out 2025"
   },
   {
     "title": "Next.js App Router e Testes",
     "issuer": "Rocketseat",
-    "period": "2025"
+    "period": "Out 2025"
   }
 ]
