@@ -17,14 +17,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${personalInfo.name} | ${personalInfo.title}`,
     description: personalInfo.tagline,
-    images: [
-      {
-        url: "/og-image.png", // Sugestão: Crie uma imagem de preview para seu site
-        width: 1200,
-        height: 630,
-        alt: `Portfólio de ${personalInfo.name}`,
-      },
-    ],
   },
 };
 
