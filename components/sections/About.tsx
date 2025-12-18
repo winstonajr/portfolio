@@ -22,7 +22,7 @@ export default function About({
         >
           <div className="w-full aspect-square rounded-lg bg-slate-200 dark:bg-slate-800 border-2 border-sky-500/10 dark:border-sky-500/30 shadow-xl dark:shadow-2xl dark:shadow-sky-900/20 flex items-center justify-center">
             <Image
-              src="/me.webp"
+              src="/me.png"
               alt="Foto de perfil"
               width={649}
               height={649}
