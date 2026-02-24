@@ -1,21 +1,5 @@
 [
   {
-    "name": "Biblioteca Virtual - Conectando Leitores",
-    "description": "Desenvolvimento de uma plataforma completa de biblioteca virtual em ambiente simulado de mercado (QaCoders Academy). Atuando em uma squad multidisciplinar (Product, UX, QA, Backend e DevOps), fui responsável por construir interfaces escaláveis com Next.js, implementando fluxos de leitura, busca e um painel administrativo robusto para gestão de acervo e usuários. Além do desenvolvimento de features, colaborei ativamente com a qualidade do projeto, sugerindo e implementando o Husky para padronização de commits e governança de código.",
-    "technologies": [
-      "Next.js",
-      "React.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Husky",
-      "Docker",
-      "Git & GitHub"
-    ],
-    "liveUrl": "https://oraculo.qacoders.dev.br",
-    "githubUrl": "",
-    "imageUrl": "/project-conectando-leitores.png"
-  },
-  {
     "name": "Dr. Vinícius Fonseca - Veterinário Domiciliar",
     "description": "Plataforma digital completa para veterinário domiciliar, com foco em captação de clientes via SEO Local avançado. O projeto entrega total autonomia ao cliente através de um painel de controle (CMS com Sanity.io) para gerenciamento de conteúdo, garantindo uma presença online sempre atualizada e profissional.",
     "technologies": [
