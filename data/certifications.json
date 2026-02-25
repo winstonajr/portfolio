@@ -1,5 +1,25 @@
 [
   {
+    "title": "Banco de Dados SQLite",
+    "issuer": "Origamid",
+    "period": "Fev 2026"
+  },
+  {
+    "title": "Next.js",
+    "issuer": "Origamid",
+    "period": "Fev 2026"
+  },
+  {
+    "title": "TypeScript para Iniciantes",
+    "issuer": "Origamid",
+    "period": "Jan 2026"
+  },
+  {
+    "title": "Tailwind CSS",
+    "issuer": "Origamid",
+    "period": "Dez 2025"
+  },
+  {
     "title": "React Completo",
     "issuer": "Origamid",
     "period": "Dez 2025"
