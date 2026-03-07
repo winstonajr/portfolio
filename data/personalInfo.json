@@ -1,11 +1,11 @@
 {
   "name": "Winston Jr.",
-  "title": "Desenvolvedor Front-End | React, Next.js & TypeScript",
-  "tagline": "Construindo interfaces ricas, performáticas e escaláveis com visão sistêmica.",
+  "title": "Desenvolvedor de Software | TypeScript • React • Node.js • Fastify",
+  "tagline": "Construindo soluções digitais robustas de ponta a ponta, da interface ao banco de dados.",
   "about": [
-    "Desenvolvedor focado na construção de interfaces ricas, performáticas e escaláveis. Meu objetivo é transformar designs e requisitos de negócio em código limpo, garantindo aplicações rápidas, acessíveis e otimizadas para SEO. ",
-    "Meu diferencial técnico, além da atuação no Front-end, é uma base sólida em Backend com Node.js. Essa visão sistêmica me permite criar integrações com APIs de forma eficiente, colaborar tecnicamente com equipes de infraestrutura e garantir que a solução final seja coesa de ponta a ponta. ",
-    "Minha stack principal envolve Next.js, React, TypeScript, Vue.js e Tailwind CSS, suportada por conhecimentos em Backend e Infra como Node.js, Prisma, PostgreSQL e Vercel."
+    "Desenvolvedor de Software apaixonado por transformar ideias em soluções digitais reais, atuando com fluidez em todas as etapas do projeto. Meu foco é entregar aplicações rápidas, acessíveis e escaláveis, unindo performance e boa arquitetura de software.",
+    "Possuo forte domínio no ecossistema JavaScript/TypeScript, construindo interfaces ricas com React e Next.js, e estruturando APIs eficientes com Node.js e Fastify. Essa visão sistêmica me permite integrar bancos de dados SQL/NoSQL, modelar regras de negócio complexas e garantir a melhor experiência final para o usuário.",
+    "Meu ambiente de desenvolvimento é 100% baseado no Fedora Linux. Estou em constante aprimoramento técnico, atualmente explorando a criação de aplicações mobile e desktop com React Native e Electron, sempre buscando entregar produtos coesos e de alto impacto."
   ],
   "curriculumLink": "/winston-almeida-curriculo.pdf",
   "email": "winston.almeidamjr@gmail.com",
