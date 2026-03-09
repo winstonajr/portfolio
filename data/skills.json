@@ -16,30 +16,25 @@
       "items": [
         { "name": "React", "icon": "SiReact" },
         { "name": "Next.js", "icon": "SiNextdotjs" },
-        { "name": "Node.js", "icon": "SiNodedotjs" },
-        { "name": "Express", "icon": "SiExpress" },
-        { "name": "Tailwind CSS", "icon": "SiTailwindcss" },
-        { "name": "Axios", "icon": "SiAxios" },
         { "name": "Vue.js", "icon": "SiVuedotjs" },
-        { "name": "Framer Motion", "icon": "SiFramer" }
+        { "name": "Express", "icon": "SiExpress" },
+        { "name": "Fastify", "icon": "SiFastify" },
+        { "name": "Sass", "icon": "SiSass" },
+        { "name": "Tailwind CSS", "icon": "SiTailwindcss" }
       ]
     },
     {
       "title": "Banco de Dados & Ferramentas",
       "icon": "Database",
       "items": [
+        { "name": "SQLite", "icon": "SiSqlite" },
         { "name": "PostgreSQL", "icon": "SiPostgresql" },
-        { "name": "Prisma", "icon": "SiPrisma" },
-        { "name": "MongoDB", "icon": "SiMongodb" },
         { "name": "MySQL", "icon": "SiMysql" },
-        { "name": "Sanity", "icon": "SiSanity" },
-        { "name": "Vercel", "icon": "SiVercel" },
-        { "name": "Render", "icon": "SiRender" },
-        { "name": "Supabase", "icon": "SiSupabase" },
+        { "name": "MongoDB", "icon": "SiMongodb" },
+        { "name": "Prisma", "icon": "SiPrisma" },
         { "name": "Git", "icon": "SiGit" },
         { "name": "GitHub", "icon": "SiGithub" },
-        { "name": "JWT", "icon": "SiJsonwebtokens" },
-        { "name": "Postman", "icon": "SiPostman" }
+        { "name": "Linux", "icon": "SiLinux" }
       ]
     }
   ]

@@ -2,7 +2,8 @@
 import { useGoogleFormSubmit } from "@/hooks/useGoogleFormSubmit";
 import Section from "../layout/Section";
 import SectionTitle from "../ui/SectionTitle";
-import { Github, Linkedin, Instagram, Mail, FileDown } from "lucide-react";
+import { Github, Linkedin, Instagram, Mail } from "lucide-react";
+import { TbFileCv } from "react-icons/tb";
 import personalInfo from "@/data/personalInfo.json";
 import { IconsRow } from "../iconsRow";
 
@@ -122,7 +123,7 @@ export default function Contact() {
             </IconsRow>
 
             <IconsRow href={personalInfo.curriculumLink}>
-              <FileDown size={28} />
+              <TbFileCv size={28} />
             </IconsRow>
           </div>
         </div>

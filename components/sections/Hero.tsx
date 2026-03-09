@@ -1,7 +1,8 @@
 "use client";
 import { PersonalInfo } from "@/types";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Instagram, Mail, FileDown } from "lucide-react";
+import { Github, Linkedin, Instagram, Mail } from "lucide-react";
+import { TbFileCv } from "react-icons/tb";
 import { IconsRowHero } from "../iconsRowHero/iconsRowHero";
 
 const heroVariants = {
@@ -58,7 +59,7 @@ export default function Hero({ personalInfo }: { personalInfo: PersonalInfo }) {
             <Mail size={24} />
           </IconsRowHero>
           <IconsRowHero href={personalInfo.curriculumLink}>
-            <FileDown size={24} />
+            <TbFileCv size={24} />
           </IconsRowHero>
         </motion.div>
       </motion.div>
