@@ -1,23 +1,37 @@
 [
   {
     "type": "work",
-    "title": "Desenvolvedor Front-End",
-    "company": "Qa Coders Academy",
-    "period": "Ago. 2025 - atualmente",
-    "description": "Atuei no desenvolvimento de sistemas frontend, criando interfaces reativas e performáticas e realizando a integração com APIs e serviços de backend. Contribui para a qualidade do código dentro de uma arquitetura modular (MVC/Clean Architecture) e colaborei ativamente com equipes de backend, QA e UX/UI para entregar soluções completas e eficientes."
+    "title": "Estágio Desenvolvedor Front End",
+    "company": "QaCoders Academy",
+    "period": "Ago 2025 - Atual",
+    "description": "Desenvolvimento de aplicações reativas com Next.js, TypeScript e Tailwind CSS, aplicando Clean Architecture e MVC. Foco em interfaces complexas (drag-and-drop, leitores de arquivo) e mentoria técnica informal, integrando APIs em squads multidisciplinares."
+  },
+  {
+    "type": "volunteer",
+    "title": "Desenvolvedor Front-end (Voluntário)",
+    "company": "FreeHelper | Fundação de Amparo a Miséria Nacional",
+    "period": "Ago 2025 - Set 2025",
+    "description": "Desenvolvimento completo do novo site institucional da fundação, focado em acessibilidade e impacto social. Projeto intensivo de 60 horas para entrega rápida de uma solução digital funcional e moderna."
+  },
+  {
+    "type": "volunteer",
+    "title": "Instrutor (Voluntário)",
+    "company": "Rede de Aplicação de Ciência e Tecnologia",
+    "period": "Set 2022 - Mar 2023",
+    "description": "Ensino de conceitos fundamentais de Python para alunos do ensino médio, com acompanhamento individualizado do desenvolvimento dos estudantes."
   },
   {
     "type": "education",
     "title": "Análise e Desenvolvimento de Sistemas",
     "company": "Faculdade Facint",
-    "period": "2025 - 2027",
-    "description": "Formação técnica e prática voltada para o desenvolvimento de software e aplicações web. Tenho aprofundado conhecimentos em lógica de programação, banco de dados, front-end, back-end e arquitetura de sistemas, alinhando os estudos ao que aplico em projetos reais."
+    "period": "Fev 2025 - Presente",
+    "description": "Foco técnico e prático, alinhando estudos acadêmicos à aplicação real em projetos Fullstack. Atualmente me aprofundando em engenharia de software e arquitetura de sistemas."
   },
   {
     "type": "education",
-    "title": "Interdisciplinar em Ciência e Tecnologia",
-    "company": "Universidade Federal do Maranhão ― UFMA",
-    "period": "2020 - 2025",
-    "description": "Iniciei o curso buscando uma formação ampla em ciência e tecnologia, com forte foco em matemática e ciências exatas. No entanto, descobri minha verdadeira paixão na programação e decidi seguir esse caminho, aprofundando meus estudos de forma mais prática e aplicada na área de desenvolvimento web."
+    "title": "Interdisciplinar em Ciência e Tecnologia (ICT)",
+    "company": "UFMA",
+    "period": "Ago 2020 - Fev 2025",
+    "description": "Formação base em exatas (Matemática, Algoritmos, Lógica), onde iniciei o interesse pela tecnologia antes da transição focada em ADS. (Não concluído)"
   }
 ]

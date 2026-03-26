@@ -6,6 +6,8 @@ export interface PersonalInfo {
   about: string[];
   curriculumLink: string;
   email: string;
+  phone?: string;
+  website?: string;
   github: string;
   linkedin: string;
   instagram: string;

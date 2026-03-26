@@ -1,107 +1,120 @@
 "use client";
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Github, Linkedin } from "lucide-react";
 import { PersonalInfo } from "@/types";
 
-const navLinks = [
-  { href: "#about", label: "Sobre" },
-  { href: "#projects", label: "Projetos" },
-  { href: "#skills", label: "Skills" },
-  { href: "#experience", label: "Jornada" },
-  { href: "#certifications", label: "Certificações" },
-  { href: "#contact", label: "Contato" },
-];
-
-export default function Header({
-  personalInfo,
-}: {
+interface HeaderProps {
   personalInfo: PersonalInfo;
-}) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+}
+
+export default function Header({ personalInfo }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showHeader, setShowHeader] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setIsScrolled(currentScrollY > 10);
-      setShowHeader(currentScrollY < lastScrollY || currentScrollY < 100);
-      setLastScrollY(currentScrollY);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
-    e.preventDefault();
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-    setIsMenuOpen(false);
-  };
+  const navLinks = [
+    { name: "Sobre", href: "#about" },
+    { name: "Projetos", href: "#projects" },
+    { name: "Skills", href: "#skills" },
+    { name: "Jornada", href: "#journey" },
+    { name: "Contato", href: "#contact" },
+  ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800"
-          : "bg-transparent"
-      } ${showHeader ? "translate-y-0" : "-translate-y-full"}`}
+      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
+        isScrolled 
+          ? "py-4 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800" 
+          : "py-6 bg-transparent"
+      }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center h-20">
-        <a
-          href="#home"
-          onClick={(e) => handleNavClick(e, "#home")}
-          className="text-2xl font-bold text-slate-900 dark:text-slate-100 hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
-        >
-          {personalInfo.name.split(" ")[0]}
-          <span className="text-sky-500 dark:text-sky-400">.</span>
+      <div className="container mx-auto px-6 flex items-center justify-between">
+        <a href="#home" className="text-2xl font-black tracking-tighter text-slate-900 dark:text-white">
+          W<span className="text-sky-500">.</span>
         </a>
-        <div className="hidden md:flex items-center gap-6">
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
-              key={link.href}
+              key={link.name}
               href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className="text-sm font-medium hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
+              className="text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
             >
-              {link.label}
+              {link.name}
             </a>
           ))}
-        </div>
-        <div className="md:hidden">
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            animate={{ rotate: isMenuOpen ? 90 : 0 }}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Abrir menu"
-            className="p-2 rounded-md text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+        </nav>
+
+        {/* Desktop Actions */}
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href={personalInfo.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 text-slate-600 dark:text-slate-400 hover:text-sky-500 transition-colors"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </motion.button>
+            <Github size={20} />
+          </a>
+          <a
+            href={personalInfo.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-bold rounded-xl hover:scale-105 transition-all"
+          >
+            Contratar
+          </a>
         </div>
-      </nav>
-      {isMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-slate-50 dark:bg-slate-900 absolute top-20 left-0 right-0 p-6 flex flex-col gap-6 border-b border-slate-200 dark:border-slate-800"
+
+        {/* Mobile Toggle */}
+        <button
+          className="md:hidden p-2 text-slate-900 dark:text-white"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className="text-lg font-medium text-center hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
-        </motion.div>
-      )}
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-full left-0 w-full bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 p-6 md:hidden"
+          >
+            <div className="flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-lg font-bold text-slate-900 dark:text-white"
+                >
+                  {link.name}
+                </a>
+              ))}
+              <hr className="border-slate-100 dark:border-slate-800 my-2" />
+              <div className="flex gap-4">
+                <a href={personalInfo.github} className="p-3 bg-slate-100 dark:bg-slate-900 rounded-xl">
+                  <Github size={20} />
+                </a>
+                <a href={personalInfo.linkedin} className="p-3 bg-slate-100 dark:bg-slate-900 rounded-xl">
+                  <Linkedin size={20} />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

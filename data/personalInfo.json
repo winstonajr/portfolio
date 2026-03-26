@@ -1,15 +1,21 @@
 {
-  "name": "Winston Jr.",
-  "title": "Desenvolvedor | TypeScript • React • Node.js • Fastify",
-  "tagline": "Construindo soluções digitais robustas de ponta a ponta.",
+  "name": "Winston Almeida Jr.",
+  "title": "Desenvolvedor JavaScript/TypeScript • React • Node.js",
+  "tagline": "",
   "about": [
-    "Desenvolvedor de Software apaixonado por transformar ideias em soluções digitais reais, atuando com fluidez em todas as etapas do projeto. Meu foco é entregar aplicações rápidas, acessíveis e escaláveis, unindo performance e boa arquitetura de software.",
-    "Possuo forte domínio no ecossistema JavaScript/TypeScript, construindo interfaces ricas com React e Next.js, e estruturando APIs eficientes com Node.js e Fastify. Essa visão sistêmica me permite integrar bancos de dados SQL/NoSQL, modelar regras de negócio complexas e garantir a melhor experiência final para o usuário.",
-    "Meu ambiente de desenvolvimento é 100% baseado no Fedora Linux. Estou em constante aprimoramento técnico, atualmente explorando a criação de aplicações mobile e desktop com React Native e Electron, sempre buscando entregar produtos coesos e de alto impacto."
+    "Desenvolvedor focado no ecossistema JavaScript/TypeScript. Possuo forte domínio em tecnologias de interface (React, Next.js) e sólida base na construção de APIs e back-end (Node.js, Fastify) com bancos de dados SQL/NoSQL.",
+    "Atualmente cursando Análise e Desenvolvimento de Sistemas, com base sólida em algoritmos vinda da formação em Ciência e Tecnologia (UFMA). Minha experiência transita entre o desenvolvimento de interfaces reativas com Next.js e a construção de APIs performáticas com Node.js e Fastify.",
+    "Com experiência em metodologias ágeis (Scrum/Kanban), busco entregar soluções completas, performáticas e otimizadas de ponta a ponta. Atualmente, busco minha primeira oportunidade profissional como Desenvolvedor Júnior ou Estagiário."
   ],
-  "curriculumLink": "/CV-WINSTON-ALMEIDA.docx",
+  "curriculumLink": "/cv-winston-almeida.docx",
   "email": "winston.almeidamjr@gmail.com",
+  "phone": "98 9 9983-2637",
+  "website": "https://winstonajr.com.br",
   "linkedin": "https://linkedin.com/in/winstonajr",
   "github": "https://github.com/winstonajr",
-  "instagram": "https://instagram.com/win_ajr"
+  "instagram": "https://instagram.com/win_ajr",
+  "languages": [
+    { "name": "Português", "level": "Nativo" },
+    { "name": "Inglês", "level": "Intermediário (Leitura e Escrita Técnica)" }
+  ]
 }

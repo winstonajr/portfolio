@@ -1,5 +1,20 @@
 [
   {
+    "name": "Projeto Conectando Leitores",
+    "description": "Atuação em squad multidisciplinar (Product, UX, QA, Backend e DevOps) para a construção de interfaces escaláveis com Next.js. Desenvolvi uma plataforma completa de biblioteca virtual em ambiente simulado de mercado, focando em componentes reutilizáveis e performance.",
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Vercel",
+      "Git & GitHub"
+    ],
+    "liveUrl": "",
+    "githubUrl": "",
+    "imageUrl": "/project-conectando-leitores.png"
+  },
+  {
     "name": "Dr. Vinícius Fonseca - Veterinário Domiciliar",
     "description": "Plataforma digital completa para veterinário domiciliar, com foco em captação de clientes via SEO Local avançado. O projeto entrega total autonomia ao cliente através de um painel de controle (CMS com Sanity.io) para gerenciamento de conteúdo, garantindo uma presença online sempre atualizada e profissional.",
     "technologies": [

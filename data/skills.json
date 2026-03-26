@@ -1,40 +1,35 @@
 {
   "categories": [
     {
-      "title": "Linguagens",
-      "icon": "Code",
-      "items": [
-        { "name": "HTML5", "icon": "SiHtml5" },
-        { "name": "CSS3", "icon": "SiCss3" },
-        { "name": "JavaScript", "icon": "SiJavascript" },
-        { "name": "TypeScript", "icon": "SiTypescript" }
-      ]
-    },
-    {
-      "title": "Frameworks & Bibliotecas",
+      "title": "Front End & UI/UX",
       "icon": "AppWindow",
       "items": [
-        { "name": "React", "icon": "SiReact" },
-        { "name": "Next.js", "icon": "SiNextdotjs" },
-        { "name": "Vue.js", "icon": "SiVuedotjs" },
-        { "name": "Express", "icon": "SiExpress" },
-        { "name": "Fastify", "icon": "SiFastify" },
-        { "name": "Sass", "icon": "SiSass" },
-        { "name": "Tailwind CSS", "icon": "SiTailwindcss" }
+        { "name": "React / Next.js", "icon": "SiNextdotjs" },
+        { "name": "TypeScript", "icon": "SiTypescript" },
+        { "name": "Tailwind CSS", "icon": "SiTailwindcss" },
+        { "name": "UI/UX Design", "icon": "Palette" },
+        { "name": "Figma", "icon": "SiFigma" }
       ]
     },
     {
-      "title": "Banco de Dados & Ferramentas",
+      "title": "Back End & Infra",
       "icon": "Database",
       "items": [
-        { "name": "SQLite", "icon": "SiSqlite" },
-        { "name": "PostgreSQL", "icon": "SiPostgresql" },
-        { "name": "MySQL", "icon": "SiMysql" },
-        { "name": "MongoDB", "icon": "SiMongodb" },
+        { "name": "Node.js / Fastify", "icon": "SiFastify" },
         { "name": "Prisma", "icon": "SiPrisma" },
-        { "name": "Git", "icon": "SiGit" },
-        { "name": "GitHub", "icon": "SiGithub" },
-        { "name": "Linux", "icon": "SiLinux" }
+        { "name": "PostgreSQL", "icon": "SiPostgresql" },
+        { "name": "Linux (Fedora)", "icon": "SiLinux" },
+        { "name": "Clean Code", "icon": "Code2" }
+      ]
+    },
+    {
+      "title": "Metodologias",
+      "icon": "Workflow",
+      "items": [
+        { "name": "Scrum / Kanban", "icon": "Kanban" },
+        { "name": "Trello / Jira", "icon": "SiTrello" },
+        { "name": "Git / GitHub", "icon": "SiGithub" },
+        { "name": "Inglês Técnico", "icon": "Languages" }
       ]
     }
   ]
