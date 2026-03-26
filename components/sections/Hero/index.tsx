@@ -28,14 +28,18 @@ export default function Hero({ personalInfo }: HeroProps) {
           Disponível para novas oportunidades
         </span>
         
-        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter text-slate-900 dark:text-slate-100 mb-6 leading-[1.1] md:leading-none">
-          {personalInfo.name.split(' ').map((word, i) => (
-            <span key={i} className="inline-block mr-2 md:mr-4 last:mr-0">{word}</span>
-          ))}
+        <h1 className="text-[2.5rem] sm:text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter text-slate-900 dark:text-slate-100 mb-6 leading-[1.1] md:leading-none">
+          <span className="inline-block mr-2 md:mr-4">Winston</span>
+          <span className="inline-block whitespace-nowrap">Almeida Jr.</span>
         </h1>
         
-        <p className="max-w-2xl mx-auto text-lg sm:text-xl md:text-3xl text-slate-600 dark:text-slate-400 mb-10 font-light leading-snug px-4">
-          {personalInfo.title}
+        <p className="max-w-2xl mx-auto text-base sm:text-xl md:text-3xl text-slate-600 dark:text-slate-400 mb-10 font-light leading-relaxed px-4 flex flex-wrap justify-center gap-x-2 gap-y-1">
+          {personalInfo.title.split(' • ').map((tech, i, arr) => (
+            <React.Fragment key={i}>
+              <span className="whitespace-nowrap">{tech}</span>
+              {i < arr.length - 1 && <span className="hidden sm:inline text-slate-300 dark:text-slate-700">•</span>}
+            </React.Fragment>
+          ))}
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
