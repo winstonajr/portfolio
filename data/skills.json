@@ -6,29 +6,35 @@
       "items": [
         { "name": "React / Next.js", "icon": "SiNextdotjs" },
         { "name": "TypeScript", "icon": "SiTypescript" },
+        { "name": "Flutter", "icon": "SiFlutter" },
+        { "name": "Vue.js", "icon": "SiVuedotjs" },
         { "name": "Tailwind CSS", "icon": "SiTailwindcss" },
         { "name": "UI/UX Design", "icon": "Palette" },
         { "name": "Figma", "icon": "SiFigma" }
       ]
     },
     {
-      "title": "Back End & Infra",
+      "title": "Back End & IA",
       "icon": "Database",
       "items": [
-        { "name": "Node.js / Fastify", "icon": "SiFastify" },
-        { "name": "Prisma", "icon": "SiPrisma" },
-        { "name": "PostgreSQL", "icon": "SiPostgresql" },
-        { "name": "Linux (Fedora)", "icon": "SiLinux" },
-        { "name": "Clean Code", "icon": "Code2" }
+        { "name": "Node.js / Express / Fastify", "icon": "SiFastify" },
+        { "name": "Prisma ORM", "icon": "SiPrisma" },
+        { "name": "PostgreSQL / SQLite", "icon": "SiPostgresql" },
+        { "name": "MongoDB / MySQL", "icon": "SiMongodb" },
+        { "name": "Inteligência Artificial (RAG)", "icon": "Brain" },
+        { "name": "APIs REST / JWT / SSE", "icon": "Cpu" },
+        { "name": "Supabase / Sanity.io", "icon": "SiSupabase" }
       ]
     },
     {
-      "title": "Metodologias",
+      "title": "Arquitetura & Processos",
       "icon": "Workflow",
       "items": [
+        { "name": "Clean Architecture / MVC", "icon": "Code2" },
         { "name": "Scrum / Kanban", "icon": "Kanban" },
-        { "name": "Trello / Jira", "icon": "SiTrello" },
-        { "name": "Git / GitHub", "icon": "SiGithub" },
+        { "name": "Docker", "icon": "SiDocker" },
+        { "name": "Git / GitHub / CI", "icon": "SiGithub" },
+        { "name": "Linux (Fedora/Ubuntu)", "icon": "SiLinux" },
         { "name": "Inglês Técnico", "icon": "Languages" }
       ]
     }

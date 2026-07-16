@@ -1,37 +1,44 @@
 [
   {
     "type": "work",
+    "title": "Desenvolvedor Full Stack (Estágio)",
+    "company": "Prefeitura de São Luís",
+    "period": "Mai 2026 - Presente",
+    "description": "Criação e evolução de aplicações reativas utilizando Next.js, TypeScript e Tailwind CSS com Prisma ORM e PostgreSQL (Clean Architecture & MVC). Atuação no desenvolvimento de aplicativo Flutter offline-first com sincronização avançada (Delta Sync e Server-Sent Events). Modelagem e normalização de banco de dados para projeto de IA (RAG), com testes unitários e E2E. Engenharia de interfaces complexas (drag-and-drop e leitores de arquivos estilo EPUB) e colaboração ágil multidisciplinar."
+  },
+  {
+    "type": "work",
     "title": "Estágio Desenvolvedor Front End",
     "company": "QaCoders Academy",
-    "period": "Ago 2025 - Atual",
-    "description": "Desenvolvimento de aplicações reativas com Next.js, TypeScript e Tailwind CSS, aplicando Clean Architecture e MVC. Foco em interfaces complexas (drag-and-drop, leitores de arquivo) e mentoria técnica informal, integrando APIs em squads multidisciplinares."
+    "period": "Ago 2025 - Jul 2026",
+    "description": "Desenvolvimento de aplicações reativas com Next.js, TypeScript e Tailwind CSS (Clean Architecture & MVC). Criação de componentes interativos complexos, incluindo mecânicas de drag-and-drop para jogos e visualizadores de arquivos em tela (estilo EPUB). Suporte técnico, mentoria informal para colegas desenvolvedores e integração de APIs em squads ágeis."
   },
   {
     "type": "volunteer",
     "title": "Desenvolvedor Front-end (Voluntário)",
     "company": "FreeHelper | Fundação de Amparo a Miséria Nacional",
     "period": "Ago 2025 - Set 2025",
-    "description": "Desenvolvimento completo do novo site institucional da fundação, focado em acessibilidade e impacto social. Projeto intensivo de 60 horas para entrega rápida de uma solução digital funcional e moderna."
+    "description": "Desenvolvimento completo do novo site institucional da fundação com foco em impacto social, acessibilidade e usabilidade em um projeto voluntário intensivo de 60 horas."
   },
   {
     "type": "volunteer",
     "title": "Instrutor (Voluntário)",
     "company": "Rede de Aplicação de Ciência e Tecnologia",
     "period": "Set 2022 - Mar 2023",
-    "description": "Ensino de conceitos fundamentais de Python para alunos do ensino médio, com acompanhamento individualizado do desenvolvimento dos estudantes."
+    "description": "Ensino de conceitos fundamentais de programação e lógica em Python para alunos do ensino médio, com acompanhamento pedagógico individualizado."
   },
   {
     "type": "education",
     "title": "Análise e Desenvolvimento de Sistemas",
     "company": "Faculdade Facint",
     "period": "Fev 2025 - Presente",
-    "description": "Foco técnico e prático, alinhando estudos acadêmicos à aplicação real em projetos Fullstack. Atualmente me aprofundando em engenharia de software e arquitetura de sistemas."
+    "description": "Foco prático e técnico na construção de aplicações escaláveis, arquitetura de sistemas e engenharia de software de ponta a ponta."
   },
   {
     "type": "education",
     "title": "Interdisciplinar em Ciência e Tecnologia (ICT)",
-    "company": "UFMA",
+    "company": "Universidade Federal do Maranhão (UFMA)",
     "period": "Ago 2020 - Fev 2025",
-    "description": "Formação base em exatas (Matemática, Algoritmos, Lógica), onde iniciei o interesse pela tecnologia antes da transição focada em ADS. (Não concluído)"
+    "description": "Formação base em ciências exatas, lógica e algoritmos, que serviu como ponto de transição e fundamentação matemática para a carreira de desenvolvedor. (Não concluído)"
   }
 ]

@@ -1,11 +1,11 @@
 {
   "name": "Winston Almeida Jr.",
-  "title": "Desenvolvedor JavaScript/TypeScript • React • Node.js",
-  "tagline": "",
+  "title": "Desenvolvedor Full Stack • Next.js • Node.js • Flutter • RAG",
+  "tagline": "Criando soluções digitais completas com Next.js, mobile offline-first e Inteligência Artificial.",
   "about": [
-    "Desenvolvedor focado no ecossistema JavaScript/TypeScript. Possuo forte domínio em tecnologias de interface (React, Next.js) e sólida base na construção de APIs e back-end (Node.js, Fastify) com bancos de dados SQL/NoSQL.",
-    "Atualmente cursando Análise e Desenvolvimento de Sistemas, com base sólida em algoritmos vinda da formação em Ciência e Tecnologia (UFMA). Minha experiência transita entre o desenvolvimento de interfaces reativas com Next.js e a construção de APIs performáticas com Node.js e Fastify.",
-    "Com experiência em metodologias ágeis (Scrum/Kanban), busco entregar soluções completas, performáticas e otimizadas de ponta a ponta. Atualmente, busco minha primeira oportunidade profissional como Desenvolvedor Júnior ou Estagiário."
+    "Desenvolvedor Full Stack com experiência prática no ecossistema JavaScript/TypeScript. Atualmente, atuo como Desenvolvedor Full Stack estagiário na Prefeitura de São Luís, participando ativamente na evolução de plataformas Next.js, arquitetura mobile offline-first em Flutter e sistemas de Inteligência Artificial baseados em RAG (Retrieval-Augmented Generation). Previamente, atuei como estagiário de desenvolvimento Front End na QaCoders Academy.",
+    "Possuo sólido domínio em React, Next.js, Node.js e bancos de dados SQL/NoSQL. Trabalho sob os princípios de Clean Architecture, MVC e metodologias ágeis (Scrum/Kanban) em squads multidisciplinares, focando em entregar softwares que unem design centrado no usuário e alta performance.",
+    "Estou cursando Análise e Desenvolvimento de Sistemas (Faculdade Facint) e possuo formação base interdisciplinar em Ciência e Tecnologia pela Universidade Federal do Maranhão (UFMA). Busco constantemente novos desafios técnicos para entregar soluções seguras, fluidas e completas de ponta a ponta."
   ],
   "curriculumLink": "/cv-winston-almeida.docx",
   "email": "winston.almeidamjr@gmail.com",
