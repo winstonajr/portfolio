@@ -1,11 +1,11 @@
 {
   "name": "Winston Almeida Jr.",
-  "title": "Desenvolvedor Full Stack • Next.js • Node.js • Flutter • RAG",
-  "tagline": "Criando soluções digitais completas com Next.js, mobile offline-first e Inteligência Artificial.",
+  "title": "Desenvolvedor de Software / Full Stack • Go • Java • Kotlin • TypeScript",
+  "tagline": "Construindo microsserviços escaláveis, aplicações mobile offline-first e interfaces web de alta performance.",
   "about": [
-    "Desenvolvedor Full Stack com experiência prática no ecossistema JavaScript/TypeScript. Atualmente, atuo como Desenvolvedor Full Stack estagiário na Prefeitura de São Luís, participando ativamente na evolução de plataformas Next.js, arquitetura mobile offline-first em Flutter e sistemas de Inteligência Artificial baseados em RAG (Retrieval-Augmented Generation). Previamente, atuei como estagiário de desenvolvimento Front End na QaCoders Academy.",
-    "Possuo sólido domínio em React, Next.js, Node.js e bancos de dados SQL/NoSQL. Trabalho sob os princípios de Clean Architecture, MVC e metodologias ágeis (Scrum/Kanban) em squads multidisciplinares, focando em entregar softwares que unem design centrado no usuário e alta performance.",
-    "Estou cursando Análise e Desenvolvimento de Sistemas (Faculdade Facint) e possuo formação base interdisciplinar em Ciência e Tecnologia pela Universidade Federal do Maranhão (UFMA). Busco constantemente novos desafios técnicos para entregar soluções seguras, fluidas e completas de ponta a ponta."
+    "Desenvolvedor de Software com sólida experiência prática na construção de aplicações escaláveis, sistemas distribuídos e soluções de ponta a ponta. Atuação destacada no desenvolvimento de microsserviços e APIs resilientes com Go, Java (Spring Boot) e PHP (Laravel), combinada a forte domínio de aplicações mobile nativas e híbridas (Kotlin/Jetpack Compose e Flutter) e interfaces web modernas (TypeScript, React 19, Next.js, Vue 3 e Electron).",
+    "Atualmente atuo no setor público (SEMIT / Prefeitura de São Luís), participando do planejamento arquitetural e desenvolvimento de sistemas corporativos de missão crítica, APIs com deploy Blue/Green e microsserviços de observabilidade. Previamente, atuei por 1 ano como desenvolvedor Front End na QaCoders Academy aplicando Clean Architecture e MVC em squads ágeis.",
+    "Estou cursando Análise e Desenvolvimento de Sistemas (Faculdade Facint) e possuo formação interdisciplinar em Ciência e Tecnologia pela Universidade Federal do Maranhão (UFMA). Comprometido com Clean Architecture, SOLID, DRY/YAGNI, persistência segura e desafios de sincronização de dados distribuídos."
   ],
   "curriculumLink": "/cv-winston-almeida.docx",
   "email": "winston.almeidamjr@gmail.com",

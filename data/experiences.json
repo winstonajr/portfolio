@@ -1,17 +1,17 @@
 [
   {
     "type": "work",
-    "title": "Desenvolvedor Full Stack (Estágio)",
-    "company": "Prefeitura de São Luís",
-    "period": "Mai 2026 - Presente",
-    "description": "Criação e evolução de aplicações reativas utilizando Next.js, TypeScript e Tailwind CSS com Prisma ORM e PostgreSQL (Clean Architecture & MVC). Atuação no desenvolvimento de aplicativo Flutter offline-first com sincronização avançada (Delta Sync e Server-Sent Events). Modelagem e normalização de banco de dados para projeto de IA (RAG), com testes unitários e E2E. Engenharia de interfaces complexas (drag-and-drop e leitores de arquivos estilo EPUB) e colaboração ágil multidisciplinar."
+    "title": "Desenvolvedor de Software (Estágio)",
+    "company": "Prefeitura de São Luís (SEMIT / SUAS)",
+    "period": "Jun 2026 - Presente",
+    "description": "Planejamento arquitetural e desenvolvimento de sistemas corporativos internos e portais de serviços de missão crítica. Desenvolvimento e evolução da CIS API em Java 21/25 (Spring Boot) e PostgreSQL com deploy Blue/Green (Docker/Nginx). Concepção e implementação do Sentinela, microsserviço de observabilidade em Go e HTMX com SQLite para diagnóstico autônomo de VMs e rede. Desenvolvimento de aplicativo móvel em Flutter integrado a backend em PHP 8.5 (Laravel 13) e banco geoespacial PostgreSQL/PostGIS, aplicando sincronização delta por timestamp e melhorias de UX/UI."
   },
   {
     "type": "work",
     "title": "Estágio Desenvolvedor Front End",
     "company": "QaCoders Academy",
-    "period": "Ago 2025 - Jul 2026",
-    "description": "Desenvolvimento de aplicações reativas com Next.js, TypeScript e Tailwind CSS (Clean Architecture & MVC). Criação de componentes interativos complexos, incluindo mecânicas de drag-and-drop para jogos e visualizadores de arquivos em tela (estilo EPUB). Suporte técnico, mentoria informal para colegas desenvolvedores e integração de APIs em squads ágeis."
+    "period": "Ago 2025 - Ago 2026",
+    "description": "Desenvolvimento de aplicações reativas com Next.js, TypeScript e Tailwind CSS (Clean Architecture & MVC). Criação de componentes interativos complexos, incluindo mecânicas de drag-and-drop para jogos e visualizadores de arquivos em tela (estilo EPUB). Suporte técnico, mentoria e integração contínua de APIs RESTful em squads ágeis multidisciplinares."
   },
   {
     "type": "volunteer",
@@ -25,7 +25,7 @@
     "title": "Instrutor (Voluntário)",
     "company": "Rede de Aplicação de Ciência e Tecnologia",
     "period": "Set 2022 - Mar 2023",
-    "description": "Ensino de conceitos fundamentais de programação e lógica em Python para alunos do ensino médio, com acompanhamento pedagógico individualizado."
+    "description": "Ensino de conceitos fundamentais de programação e lógica em Python para alunos do ensino médio da rede pública, com acompanhamento pedagógico individualizado."
   },
   {
     "type": "education",
@@ -39,6 +39,6 @@
     "title": "Interdisciplinar em Ciência e Tecnologia (ICT)",
     "company": "Universidade Federal do Maranhão (UFMA)",
     "period": "Ago 2020 - Fev 2025",
-    "description": "Formação base em ciências exatas, lógica e algoritmos, que serviu como ponto de transição e fundamentação matemática para a carreira de desenvolvedor. (Não concluído)"
+    "description": "Formação base em ciências exatas, lógica e algoritmos, que serviu como fundamentação matemática e estrutural para a carreira de desenvolvedor. (Não concluído)"
   }
 ]
