@@ -43,7 +43,7 @@ export default function Contact() {
                 </span>
               </h2>
               <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-md">
-                Estou sempre aberto a novos desafios de estágio, trabalhos freelance ou colaborações. Sinta-se à vontade para enviar uma mensagem ou se conectar pelas redes sociais!
+                Estou aberto a oportunidades profissionais em Engenharia de Software (Full Stack, Back-End ou Mobile), projetos corporativos e colaborações técnicas. Sinta-se à vontade para enviar uma mensagem ou se conectar pelas redes sociais!
               </p>
             </div>
 

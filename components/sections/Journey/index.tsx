@@ -28,7 +28,7 @@ export default function Journey({ experiences }: JourneyProps) {
       case "work":
         return "bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-500/20";
       case "education":
-        return "bg-pink-500/10 text-pink-600 dark:text-pink-400 border-pink-500/20";
+        return "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-500/20";
       case "volunteer":
         return "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20";
       default:
@@ -39,11 +39,11 @@ export default function Journey({ experiences }: JourneyProps) {
   const getLabel = (type: string) => {
     switch (type) {
       case "work":
-        return "Estágio / Carreira";
+        return "Experiência Profissional";
       case "education":
-        return "Educação";
+        return "Formação Acadêmica";
       case "volunteer":
-        return "Voluntariado";
+        return "Projetos Voluntários";
       default:
         return "Experiência";
     }

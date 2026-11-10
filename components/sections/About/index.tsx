@@ -12,27 +12,27 @@ interface AboutProps {
 export default function About({ personalInfo }: AboutProps) {
   const stats = [
     {
-      label: "Experiência",
-      value: "Estágio Ativo",
-      detail: "Prefeitura de São Luís (Full Stack)",
+      label: "Atuação Profissional",
+      value: "SEMIT / SUAS",
+      detail: "APIs Críticas, Observabilidade & Mobile",
       icon: <Briefcase size={20} className="text-sky-500" />,
     },
     {
-      label: "Projetos",
-      value: "+10 Concluídos",
-      detail: "Institucionais, Freelance & RAG",
+      label: "Engenharia de Software",
+      value: "Sistemas & Apps",
+      detail: "Offline-First, ERP Desktop & Microsserviços",
       icon: <FolderGit2 size={20} className="text-indigo-500" />,
     },
     {
-      label: "Formação",
-      value: "ADS em Curso",
+      label: "Formação Acadêmica",
+      value: "ADS & ICT",
       detail: "Faculdade Facint & UFMA",
-      icon: <GraduationCap size={20} className="text-pink-500" />,
+      icon: <GraduationCap size={20} className="text-sky-400" />,
     },
     {
-      label: "Localização",
-      value: "São Luís, MA",
-      detail: "Disponível Híbrido/Presencial/Remoto",
+      label: "Disponibilidade",
+      value: "São Luís / Remoto",
+      detail: "Presencial, Híbrido ou 100% Remoto",
       icon: <MapPin size={20} className="text-emerald-500" />,
     },
   ];

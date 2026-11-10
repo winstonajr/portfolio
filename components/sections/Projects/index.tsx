@@ -2,13 +2,15 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { Github, ExternalLink, ChevronLeft, ChevronRight, Compass } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Github, ExternalLink, ChevronLeft, ChevronRight, Layers, Smartphone, Globe } from "lucide-react";
 import { Project } from "@/types";
 
 interface ProjectsProps {
   projects: Project[];
 }
+
+type CategoryType = "all" | "systems" | "web";
 
 export default function Projects({ projects }: ProjectsProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -17,16 +19,38 @@ export default function Projects({ projects }: ProjectsProps) {
   const scrollLeft = useRef(0);
   const [isDragging, setIsDragging] = useState(false);
   const [isMouseDown, setIsMouseDown] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<CategoryType>("all");
   
   const targetScrollLeft = useRef(0);
   const animationFrameId = useRef<number | null>(null);
+
+  const isSystemProject = (project: Project) => {
+    return project.technologies.some((tech) =>
+      ["Kotlin", "Android", "Go", "Electron", "Flutter", "Room", "SQLCipher", "Ed25519"].includes(tech)
+    );
+  };
+
+  const filteredProjects = projects.filter((project) => {
+    if (activeCategory === "all") return true;
+    if (activeCategory === "systems") return isSystemProject(project);
+    if (activeCategory === "web") return !isSystemProject(project);
+    return true;
+  });
+
+  const handleCategoryChange = (category: CategoryType) => {
+    setActiveCategory(category);
+    if (scrollRef.current) {
+      targetScrollLeft.current = 0;
+      scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+    }
+  };
 
   const smoothScroll = () => {
     if (!scrollRef.current) return;
     const current = scrollRef.current.scrollLeft;
     const target = targetScrollLeft.current;
     const diff = target - current;
-    const speed = 0.12; // Easing coefficient (12% of remaining distance per frame)
+    const speed = 0.12;
 
     if (Math.abs(diff) > 0.5) {
       scrollRef.current.scrollLeft = current + diff * speed;
@@ -34,7 +58,7 @@ export default function Projects({ projects }: ProjectsProps) {
     } else {
       scrollRef.current.scrollLeft = target;
       animationFrameId.current = null;
-      setIsMouseDown(false); // Re-enable snapping only after smooth glide finishes
+      setIsMouseDown(false);
     }
   };
 
@@ -60,10 +84,9 @@ export default function Projects({ projects }: ProjectsProps) {
         cancelAnimationFrame(animationFrameId.current);
         animationFrameId.current = null;
       }
-      setIsMouseDown(true); // Disable snapping during manual scroll to prevent fighting scroll behavior
+      setIsMouseDown(true);
       scrollRef.current.scrollTo({ left: target, behavior: "smooth" });
       
-      // Re-enable snapping after smooth scroll completes (approx. 400ms)
       setTimeout(() => {
         setIsMouseDown(false);
       }, 400);
@@ -73,7 +96,7 @@ export default function Projects({ projects }: ProjectsProps) {
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!scrollRef.current) return;
     isDown.current = true;
-    setIsMouseDown(true); // Disable snap
+    setIsMouseDown(true);
     setIsDragging(false);
     startX.current = e.pageX - scrollRef.current.offsetLeft;
     scrollLeft.current = scrollRef.current.scrollLeft;
@@ -122,6 +145,25 @@ export default function Projects({ projects }: ProjectsProps) {
     }
   };
 
+  const getArchitectureBadge = (project: Project) => {
+    if (project.name.includes("Finlo")) {
+      return { label: "Offline-First Sync • Android Nativo", color: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20" };
+    }
+    if (project.name.includes("Koryvi")) {
+      return { label: "ERP Desktop & PDV • Go & Ed25519", color: "text-indigo-500 bg-indigo-500/10 border-indigo-500/20" };
+    }
+    if (project.name.includes("DashDrop")) {
+      return { label: "Self-Hosted LAN • Go & sqlc", color: "text-sky-500 bg-sky-500/10 border-sky-500/20" };
+    }
+    if (project.name.includes("Órbita")) {
+      return { label: "Hardware Protocol • Android TV v2", color: "text-cyan-500 bg-cyan-500/10 border-cyan-500/20" };
+    }
+    if (project.name.includes("FinanTrack")) {
+      return { label: "Full Stack • REST API & JWT", color: "text-sky-500 bg-sky-500/10 border-sky-500/20" };
+    }
+    return { label: "Web Platform & Jamstack", color: "text-slate-500 bg-slate-500/10 border-slate-500/20" };
+  };
+
   return (
     <section
       id="projects"
@@ -129,17 +171,17 @@ export default function Projects({ projects }: ProjectsProps) {
     >
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6 max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 gap-6 max-w-6xl mx-auto">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-sky-500/10 text-sky-600 dark:text-sky-400 text-xs font-bold uppercase tracking-widest border border-sky-500/20 mb-4 select-none">
               <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse" />
-              Portfólio
+              Engenharia de Software
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight select-none">
               Projetos em Destaque
             </h2>
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-light leading-relaxed mt-3 select-none">
-              Soluções digitais autorais e profissionais que aliam engenharia de software de ponta, design responsivo e excelente experiência de uso.
+              Sistemas distribuídos, aplicações mobile Offline-First e plataformas completas com foco em resiliência, arquitetura limpa e alta performance.
             </p>
           </div>
 
@@ -147,19 +189,63 @@ export default function Projects({ projects }: ProjectsProps) {
           <div className="flex gap-3 self-start md:self-auto select-none">
             <button
               onClick={() => scroll("left")}
-              className="p-3.5 border border-slate-200 dark:border-slate-800 rounded-full hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-sky-500/30 transition-all text-slate-600 dark:text-slate-400 focus:ring-2 focus:ring-sky-500/50 outline-none cursor-pointer shadow-sm active:scale-95"
+              className="p-3.5 border border-slate-200 dark:border-slate-800 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-sky-500/30 transition-all text-slate-600 dark:text-slate-400 focus:ring-2 focus:ring-sky-500/50 outline-none cursor-pointer shadow-sm active:scale-95"
               aria-label="Projetos anteriores"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               onClick={() => scroll("right")}
-              className="p-3.5 border border-slate-200 dark:border-slate-800 rounded-full hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-sky-500/30 transition-all text-slate-600 dark:text-slate-400 focus:ring-2 focus:ring-sky-500/50 outline-none cursor-pointer shadow-sm active:scale-95"
+              className="p-3.5 border border-slate-200 dark:border-slate-800 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-sky-500/30 transition-all text-slate-600 dark:text-slate-400 focus:ring-2 focus:ring-sky-500/50 outline-none cursor-pointer shadow-sm active:scale-95"
               aria-label="Próximos projetos"
             >
               <ChevronRight size={20} />
             </button>
           </div>
+        </div>
+
+        {/* Category Filter Tabs (Linear Style) */}
+        <div className="max-w-6xl mx-auto mb-10 flex flex-wrap gap-2 select-none">
+          {[
+            { id: "all", label: "Todos os Projetos", icon: <Layers size={14} />, count: projects.length },
+            {
+              id: "systems",
+              label: "Sistemas & Mobile Nativo",
+              icon: <Smartphone size={14} />,
+              count: projects.filter(isSystemProject).length,
+            },
+            {
+              id: "web",
+              label: "Web Full Stack & APIs",
+              icon: <Globe size={14} />,
+              count: projects.filter((p) => !isSystemProject(p)).length,
+            },
+          ].map((tab) => {
+            const isActive = activeCategory === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => handleCategoryChange(tab.id as CategoryType)}
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer ${
+                  isActive
+                    ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-md shadow-slate-950/10"
+                    : "bg-slate-100 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-transparent hover:border-slate-300 dark:hover:border-slate-700"
+                }`}
+              >
+                {tab.icon}
+                <span>{tab.label}</span>
+                <span
+                  className={`text-[10px] px-2 py-0.5 rounded-md ${
+                    isActive
+                      ? "bg-white/20 dark:bg-slate-900/20 text-white dark:text-slate-900"
+                      : "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400"
+                  }`}
+                >
+                  {tab.count}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Horizontal scroll grid */}
@@ -174,115 +260,139 @@ export default function Projects({ projects }: ProjectsProps) {
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
         >
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: Math.min(index * 0.1, 0.4) }}
-              viewport={{ once: true, margin: "-50px" }}
-              className="min-w-[85vw] sm:min-w-[60vw] md:min-w-[45vw] lg:min-w-[32vw] snap-start bg-slate-50 dark:bg-slate-950 rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800/80 group shadow-md hover:shadow-2xl hover:shadow-sky-500/5 dark:hover:shadow-sky-500/2 hover:border-sky-500/20 dark:hover:border-sky-500/10 transition-all duration-500 select-none"
-            >
-              {/* Project Image Panel */}
-              <div className="relative h-56 md:h-64 overflow-hidden bg-slate-100 dark:bg-slate-900 border-b border-slate-200/50 dark:border-slate-800/50">
-                <Image
-                  src={project.imageUrl}
-                  alt={project.name}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  draggable={false}
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-108 select-none pointer-events-none"
-                />
-                
-                {/* Floating Interactive Hover Overlay */}
-                <div className="absolute inset-0 bg-slate-955/70 dark:bg-slate-950/70 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-4 backdrop-blur-sm">
-                  {project.githubUrl && (
-                    <motion.a
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={handleLinkClick}
-                      className="p-3.5 bg-white/10 hover:bg-white/20 text-white rounded-2xl border border-white/20 transition-all shadow-lg flex items-center gap-2 text-xs font-bold select-none"
-                    >
-                      <Github size={18} className="pointer-events-none select-none" /> Código
-                    </motion.a>
-                  )}
-                  {project.liveUrl && (
-                    <motion.a
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={handleLinkClick}
-                      className="p-3.5 bg-sky-500 hover:bg-sky-400 text-white rounded-2xl transition-all shadow-lg shadow-sky-500/30 flex items-center gap-2 text-xs font-bold select-none"
-                    >
-                      <ExternalLink size={18} className="pointer-events-none select-none" /> Demo Live
-                    </motion.a>
-                  )}
-                </div>
-              </div>
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, index) => {
+              const badge = getArchitectureBadge(project);
 
-              {/* Content Panel */}
-              <div className="p-8 flex flex-col justify-between h-[300px] select-none">
-                <div>
-                  {/* Tech Badges */}
-                  <div className="flex flex-wrap gap-1.5 mb-4 select-none">
-                    {project.technologies.slice(0, 4).map((tech, i) => (
-                      <span
-                        key={i}
-                        className="text-[9px] font-black uppercase tracking-wider text-sky-600 dark:text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-md border border-sky-500/10 select-none"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 4 && (
-                      <span className="text-[9px] font-black uppercase tracking-wider text-slate-500 bg-slate-100 dark:bg-slate-900 px-2 py-1 rounded-md select-none">
-                        +{project.technologies.length - 4}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-xl md:text-2xl font-black text-slate-900 dark:text-white mb-3 group-hover:text-sky-500 transition-colors tracking-tight line-clamp-1 select-none">
-                    {project.name}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-4 font-light leading-relaxed select-none">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Bottom Footer Actions */}
-                <div className="pt-6 border-t border-slate-200/60 dark:border-slate-800/80 flex items-center justify-between mt-4 select-none">
-                  <a
-                    href={project.liveUrl || project.githubUrl || "#"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={handleLinkClick}
-                    className="inline-flex items-center gap-2 text-xs font-black text-slate-900 dark:text-slate-100 hover:text-sky-500 dark:hover:text-sky-400 transition-colors group/link cursor-pointer select-none"
-                  >
-                    Ver Detalhes
-                    <ChevronRight
-                      size={14}
-                      className="transition-transform group-hover/link:translate-x-1 text-sky-500 pointer-events-none select-none"
+              return (
+                <motion.div
+                  key={project.name}
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4, delay: Math.min(index * 0.08, 0.3) }}
+                  className="min-w-[85vw] sm:min-w-[60vw] md:min-w-[45vw] lg:min-w-[32vw] snap-start bg-slate-50 dark:bg-slate-950 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800/80 group shadow-sm hover:shadow-2xl hover:shadow-slate-900/10 dark:hover:shadow-white/[0.02] hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 select-none flex flex-col justify-between"
+                >
+                  {/* Top Image Panel */}
+                  <div className="relative h-56 md:h-64 overflow-hidden bg-slate-100 dark:bg-slate-900 border-b border-slate-200/60 dark:border-slate-800/60">
+                    <Image
+                      src={project.imageUrl}
+                      alt={project.name}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      draggable={false}
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none pointer-events-none"
                     />
-                  </a>
 
-                  {/* Tiny Interactive Indicator */}
-                  <div className="flex items-center gap-1.5 select-none">
-                    <Compass size={14} className="text-slate-300 dark:text-slate-700 animate-spin-slow group-hover:text-sky-500/50 transition-colors pointer-events-none select-none" />
-                    <span className="text-[9px] font-bold text-slate-400 dark:text-slate-600 uppercase tracking-widest select-none">
-                      Interactive
-                    </span>
+                    {/* Architecture Tag on Image */}
+                    <div className="absolute top-4 left-4 z-10">
+                      <span
+                        className={`text-[10px] font-bold px-3 py-1 rounded-lg border backdrop-blur-md shadow-sm ${badge.color}`}
+                      >
+                        {badge.label}
+                      </span>
+                    </div>
+
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-sm">
+                      {project.githubUrl && (
+                        <motion.a
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={handleLinkClick}
+                          className="px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white rounded-xl border border-white/20 transition-all shadow-lg flex items-center gap-2 text-xs font-bold"
+                        >
+                          <Github size={16} /> Código
+                        </motion.a>
+                      )}
+                      {project.liveUrl && (
+                        <motion.a
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={handleLinkClick}
+                          className="px-4 py-2.5 bg-sky-500 hover:bg-sky-400 text-white rounded-xl transition-all shadow-lg shadow-sky-500/30 flex items-center gap-2 text-xs font-bold"
+                        >
+                          <ExternalLink size={16} /> Demo
+                        </motion.a>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+
+                  {/* Content Panel */}
+                  <div className="p-7 flex flex-col justify-between flex-1">
+                    <div>
+                      {/* Title */}
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors tracking-tight line-clamp-1">
+                        {project.name}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 line-clamp-4 font-light leading-relaxed mb-5">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    <div>
+                      {/* Tech Pills (Linear High-Density Style) */}
+                      <div className="flex flex-wrap gap-1.5 pt-4 border-t border-slate-200/60 dark:border-slate-800/80 mb-4">
+                        {project.technologies.slice(0, 5).map((tech, i) => (
+                          <span
+                            key={i}
+                            className="text-[10px] font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-900 px-2.5 py-1 rounded-md border border-slate-200/80 dark:border-slate-800"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.technologies.length > 5 && (
+                          <span className="text-[10px] font-semibold text-slate-500 bg-slate-100/50 dark:bg-slate-900/50 px-2 py-1 rounded-md border border-slate-200/50 dark:border-slate-800/50">
+                            +{project.technologies.length - 5}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Direct Action Links (Accessible on Mobile & Desktop) */}
+                      <div className="flex items-center justify-between text-xs pt-1">
+                        {project.githubUrl ? (
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleLinkClick}
+                            className="inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 font-semibold transition-colors"
+                          >
+                            <Github size={14} />
+                            Repositório
+                          </a>
+                        ) : (
+                          <span className="text-slate-400 dark:text-slate-600 text-[11px]">Código Privado</span>
+                        )}
+
+                        {project.liveUrl && (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleLinkClick}
+                            className="inline-flex items-center gap-1.5 text-sky-600 dark:text-sky-400 hover:underline font-semibold"
+                          >
+                            <span>Live Demo</span>
+                            <ExternalLink size={12} />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
         </div>
       </div>
     </section>

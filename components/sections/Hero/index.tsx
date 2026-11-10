@@ -91,10 +91,18 @@ export default function Hero({ personalInfo }: HeroProps) {
 
           {/* Subtitle / Tech Tags */}
           <motion.div variants={itemVariants} className="mb-6 flex flex-wrap gap-2">
-            {["Next.js", "Node.js", "Flutter", "RAG & IA", "TypeScript"].map((tech, idx) => (
+            {[
+              "Go (Golang)",
+              "Java (Spring Boot)",
+              "Kotlin (Android)",
+              "TypeScript",
+              "React 19 / Next.js",
+              "Flutter",
+              "Docker",
+            ].map((tech, idx) => (
               <span
                 key={idx}
-                className="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-350 text-xs font-bold rounded-lg shadow-sm"
+                className="px-3 py-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold rounded-lg shadow-sm"
               >
                 {tech}
               </span>
@@ -106,7 +114,7 @@ export default function Hero({ personalInfo }: HeroProps) {
             variants={itemVariants}
             className="text-lg md:text-xl text-slate-650 dark:text-slate-400 font-light leading-relaxed max-w-xl mb-10"
           >
-            {personalInfo.tagline} Especialista em desenvolver interfaces elegantes com <span className="font-semibold text-slate-800 dark:text-slate-200">Next.js</span>, aplicativos mobile <span className="font-semibold text-slate-800 dark:text-slate-200">offline-first</span> e integrações inteligentes com IA.
+            {personalInfo.tagline} Especialista no desenvolvimento de microsserviços de alta performance com <span className="font-semibold text-slate-800 dark:text-slate-200">Go</span> e <span className="font-semibold text-slate-800 dark:text-slate-200">Java</span>, aplicativos nativos <span className="font-semibold text-slate-800 dark:text-slate-200">Offline-First</span> em Kotlin/Flutter e interfaces web reativas.
           </motion.p>
 
           {/* Action Buttons */}
@@ -187,7 +195,7 @@ export default function Hero({ personalInfo }: HeroProps) {
 
           {/* Orbiting Floating Cards */}
           
-          {/* Card 1: Next.js */}
+          {/* Card 1: Go & Java */}
           <motion.div
             animate={floatAnimation(0)}
             className="absolute top-2 -left-4 sm:-left-8 p-3.5 bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl backdrop-blur-md flex items-center gap-3 z-20 cursor-default select-none"
@@ -196,12 +204,12 @@ export default function Hero({ personalInfo }: HeroProps) {
               <Terminal size={18} />
             </div>
             <div>
-              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Frontend</p>
-              <h4 className="text-xs font-black text-slate-900 dark:text-white">Next.js Expert</h4>
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">APIs & Back-End</p>
+              <h4 className="text-xs font-black text-slate-900 dark:text-white">Go • Spring Boot</h4>
             </div>
           </motion.div>
 
-          {/* Card 2: Flutter */}
+          {/* Card 2: Mobile */}
           <motion.div
             animate={floatAnimation(1.5)}
             className="absolute bottom-8 -right-4 sm:-right-8 p-3.5 bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl backdrop-blur-md flex items-center gap-3 z-20 cursor-default select-none"
@@ -210,22 +218,22 @@ export default function Hero({ personalInfo }: HeroProps) {
               <Cpu size={18} />
             </div>
             <div>
-              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Mobile</p>
-              <h4 className="text-xs font-black text-slate-900 dark:text-white">Flutter Dev</h4>
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Mobile Nativo & Híbrido</p>
+              <h4 className="text-xs font-black text-slate-900 dark:text-white">Kotlin • Flutter</h4>
             </div>
           </motion.div>
 
-          {/* Card 3: RAG & IA */}
+          {/* Card 3: Architecture */}
           <motion.div
             animate={floatAnimation(3)}
             className="absolute -bottom-4 left-6 sm:left-12 p-3.5 bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl backdrop-blur-md flex items-center gap-3 z-20 cursor-default select-none"
           >
-            <div className="p-2 bg-pink-500/10 text-pink-555 rounded-xl">
+            <div className="p-2 bg-emerald-500/10 text-emerald-500 rounded-xl">
               <Sparkles size={18} />
             </div>
             <div>
-              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Inteligência Artificial</p>
-              <h4 className="text-xs font-black text-slate-900 dark:text-white">RAG Systems</h4>
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Arquitetura</p>
+              <h4 className="text-xs font-black text-slate-900 dark:text-white">Offline-First & Clean Arch</h4>
             </div>
           </motion.div>
 

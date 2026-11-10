@@ -34,9 +34,9 @@ export default function Skills({ skills }: SkillsProps) {
       glowBg: "from-indigo-500/5 to-transparent",
     },
     {
-      borderHover: "hover:border-pink-500/30 dark:hover:border-pink-500/20",
-      iconBg: "bg-pink-500/10 text-pink-600 dark:text-pink-400",
-      glowBg: "from-pink-500/5 to-transparent",
+      borderHover: "hover:border-emerald-500/30 dark:hover:border-emerald-500/20",
+      iconBg: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+      glowBg: "from-emerald-500/5 to-transparent",
     },
   ];
 

@@ -9,7 +9,7 @@ import {
   SkillsData,
 } from "@/types";
 
-import CursorLightning from "@/components/ui/shared/CursorLightning";
+import { CursorSpotlight } from "@/hooks/CursorSpotlight";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
@@ -36,7 +36,7 @@ const skills: SkillsData = skillsData;
 export default function PortfolioPage() {
   return (
     <div className="relative w-full overflow-x-hidden bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 antialiased selection:bg-sky-500/20">
-      <CursorLightning />
+      <CursorSpotlight />
       <Header personalInfo={personalInfo} />
 
       <main className="relative z-10 w-full">

@@ -1,38 +1,33 @@
 [
   {
-    "title": "Back End Node.js",
-    "issuer": "Origamid",
-    "period": "Fev 2026"
+    "title": "Especialização em Go: Fundamentos, Bancos de Dados e APIs REST",
+    "issuer": "Rocketseat",
+    "period": "2026"
   },
   {
-    "title": "Banco de Dados SQLite",
-    "issuer": "Origamid",
-    "period": "Fev 2026"
+    "title": "Formação Java & Fundamentos de Spring Boot",
+    "issuer": "Rocketseat",
+    "period": "2026"
   },
   {
-    "title": "Next.js",
-    "issuer": "Origamid",
-    "period": "Fev 2026"
+    "title": "Containers com Docker e Docker Compose",
+    "issuer": "Rocketseat",
+    "period": "2026"
   },
   {
-    "title": "TypeScript para Iniciantes",
-    "issuer": "Origamid",
-    "period": "Jan 2026"
+    "title": "Conceitos Avançados de HTTP Servers & Microsserviços",
+    "issuer": "Rocketseat",
+    "period": "2026"
   },
   {
-    "title": "Tailwind CSS",
-    "issuer": "Origamid",
-    "period": "Dez 2025"
+    "title": "Fundamentos da Cultura DevOps & CI/CD",
+    "issuer": "Rocketseat",
+    "period": "2026"
   },
   {
-    "title": "React Completo",
-    "issuer": "Origamid",
-    "period": "Dez 2025"
-  },
-  {
-    "title": "JavaScript Completo ES6",
-    "issuer": "Origamid",
-    "period": "Dez 2025"
+    "title": "Especialização Next.js (App Router e Testes)",
+    "issuer": "Rocketseat",
+    "period": "2025 - 2026"
   },
   {
     "title": "Treinamento em Controle de Qualidade TQC",
@@ -40,33 +35,23 @@
     "period": "2025"
   },
   {
-    "title": "Ecossistema Web Moderno e JS/TS Avançado",
-    "issuer": "Udemy",
+    "title": "Back End Node.js & APIs",
+    "issuer": "Origamid",
+    "period": "Fev 2026"
+  },
+  {
+    "title": "Banco de Dados Relacionais & SQLite",
+    "issuer": "Origamid",
+    "period": "Fev 2026"
+  },
+  {
+    "title": "TypeScript Avançado",
+    "issuer": "Origamid",
+    "period": "Jan 2026"
+  },
+  {
+    "title": "UI/UX Design Avançado & Design Systems",
+    "issuer": "Origamid & Alura",
     "period": "2025"
-  },
-  {
-    "title": "UI Design Avançado",
-    "issuer": "Origamid",
-    "period": "Nov 2025"
-  },
-  {
-    "title": "HTML e CSS para Iniciantes",
-    "issuer": "Origamid",
-    "period": "Nov 2025"
-  },
-  {
-    "title": "UI Design para Iniciantes",
-    "issuer": "Origamid",
-    "period": "Nov 2025"
-  },
-  {
-    "title": "Formação UX Design",
-    "issuer": "Alura",
-    "period": "Out 2025"
-  },
-  {
-    "title": "Next.js App Router e Testes",
-    "issuer": "Rocketseat",
-    "period": "Out 2025"
   }
 ]
